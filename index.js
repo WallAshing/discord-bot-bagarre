@@ -46,19 +46,6 @@ client.on('message', message => {
         // message.delete();
     }
 
-    if (command === prefix + "bagarre"){
-        let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
-        // console.log(random);
-        if (random == 1){
-            message.channel.send(winEmbed); // embed message pour la win
-            message.channel.send('Tu as gagné ' + thisMention + '!'); // Résultat de la bagarre + mention
-        }
-        else{
-            message.channel.send(loseEmbed); // embed message pour la lose
-            message.channel.send('Tu as perdu ' + thisMention + '!'); // Résultat de la bagarre + mention
-        };
-    }
-
     if (separatedText[0] === prefix + 'bagarre'){
         if (separatedText[1] != undefined){
             let separatedId = separatedText[1].split("!");
@@ -101,12 +88,20 @@ client.on('message', message => {
             let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
             // console.log(random);
             if (random == 1){
+                const winEmbed = new MessageEmbed()
+                    .setColor(winColor)
+                    .setTitle('Tu a gagné')
+                    .setAuthor('LA BAGARRE')
+                    .setImage(win)
                 message.channel.send(winEmbed); // embed message pour la win
-                message.channel.send('Tu as gagné ' + thisMention + '!'); // Résultat de la bagarre + mention
             }
-            else{
+            if (random == 0){
+                const loseEmbed = new MessageEmbed()
+                    .setColor(loseColor)
+                    .setTitle('Tu a perdu')
+                    .setAuthor('LA BAGARRE')
+                    .setImage(lose)
                 message.channel.send(loseEmbed); // embed message pour la lose
-                message.channel.send('Tu as perdu ' + thisMention + '!'); // Résultat de la bagarre + mention
             };
         }
     }
