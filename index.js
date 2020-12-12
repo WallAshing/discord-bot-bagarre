@@ -95,7 +95,7 @@ client.on('message', message => {
 
                     title = title.split("<@")
                     
-                    if (!(title.length == 1)){
+                    if (title.length == 1){
                         if (player != opponent){
                             if (random == 1){
                                 const fightEmbed = new MessageEmbed()
