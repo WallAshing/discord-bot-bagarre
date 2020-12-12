@@ -93,6 +93,7 @@ client.on('message', message => {
                         title += totuLeContenu[i] + " ";
                     }
                     message.channel.send(title);
+                    message.channel.send(title.length);
                     // if (title.split("<@&") || title.split("<@!")){
                     //     message.channel.send("T'as mal écris bg");
                     //     return;
@@ -122,6 +123,9 @@ client.on('message', message => {
                                     )
                                 message.channel.send(fightEmbed);
                             };
+                        }
+                        else{
+                            message.channel.send("Désolé c'est pas mazo friendly, réécris la commande bg");
                         }
                     }
                     else{
