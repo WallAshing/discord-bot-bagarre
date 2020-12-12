@@ -99,7 +99,7 @@ client.on('message', message => {
                                 )
                             message.channel.send(fightEmbed);
                         }
-                        else{
+                        if (random == 0){
                             const fightEmbed = new MessageEmbed()
                                 .setColor(winColor)
                                 .setTitle(title)
@@ -110,6 +110,7 @@ client.on('message', message => {
                                 )
                             message.channel.send(fightEmbed);
                         };
+                    }
                 }   
                 
             }
