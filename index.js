@@ -57,9 +57,9 @@ client.on('message', message => {
                     if (player != opponent){
                         if (random == 1){
                             const fightEmbed = new MessageEmbed()
-                                .setColor(winColor)
+                                .setColor(loseColor)
                                 .setTitle('LA BAGARRE')
-                                .setImage(win)
+                                .setImage(lose)
                                 .addFields(
                                     { name: ':trophy: Winner :trophy:', value: opponent, inline: true },
                                     { name: ':x: Loser :x:', value: player, inline: true }
@@ -110,7 +110,7 @@ client.on('message', message => {
                             }
                             if (random == 0){
                                 const fightEmbed = new MessageEmbed()
-                                    .setColor(winColor)
+                                    .setColor(loseColor)
                                     .setTitle(title)
                                     .setImage(lose)
                                     .addFields(
