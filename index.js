@@ -4,7 +4,6 @@ const { MessageEmbed } = require('discord.js');
 
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
 const lose = "https://cdn.discordapp.com/attachments/427551918009745433/787013550060601384/EjvEwh_WAAAzr9r.png";
-const bagarre = "https://cdn.discordapp.com/attachments/427551918009745433/787013569610514442/EjvDa-CWkAc5haA.png"
 
 
 
@@ -72,7 +71,7 @@ client.on('message', message => {
                     const fightEmbed = new MessageEmbed()
                         .setColor(winColor)
                         .setTitle('LA BAGARRE')
-                        .setImage(bagarre)
+                        .setImage(win)
                         .addFields(
                             { name: ':x:', value: player, inline: true },
                             { name: 'Résultat', value: "-------------", inline: true },
@@ -84,7 +83,7 @@ client.on('message', message => {
                     const fightEmbed = new MessageEmbed()
                         .setColor(winColor)
                         .setTitle('LA BAGARRE')
-                        .setImage(bagarre)
+                        .setImage(win)
                         .addFields(
                             { name: ':x:', value: opponent, inline: true },
                             { name: 'Résultat', value: "-------------", inline: true },
