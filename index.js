@@ -103,8 +103,8 @@ client.on('message', message => {
                                     .setTitle(title)
                                     .setImage(win)
                                     .addFields(
-                                        { name: ':trophy: Winner :trophy:', value: opponent, inline: true },
-                                        { name: ':x: Loser :x:', value: player, inline: true }
+                                        { name: ':trophy: Winner :trophy:', value: player, inline: true },
+                                        { name: ':x: Loser :x:', value: opponent, inline: true }
                                     )
                                 message.channel.send(fightEmbed);
                             }
@@ -112,10 +112,10 @@ client.on('message', message => {
                                 const fightEmbed = new MessageEmbed()
                                     .setColor(winColor)
                                     .setTitle(title)
-                                    .setImage(win)
+                                    .setImage(lose)
                                     .addFields(
-                                        { name: ':trophy: Winner :trophy:', value: player, inline: true },
-                                        { name: ':x: Loser :x:', value: opponent, inline: true }
+                                        { name: ':trophy: Winner :trophy:', value: opponent, inline: true },
+                                        { name: ':x: Loser :x:', value: player, inline: true }
                                     )
                                 message.channel.send(fightEmbed);
                             };
