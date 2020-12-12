@@ -92,7 +92,7 @@ client.on('message', message => {
                     for (let i = 0; i < totuLeContenu.length; i++) {
                         title += totuLeContenu[i] + " ";
                     }
-                    
+                    message.channel.send(title);
                     // if (title.split("<@&") || title.split("<@!")){
                     //     message.channel.send("T'as mal écris bg");
                     //     return;
