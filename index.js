@@ -93,16 +93,9 @@ client.on('message', message => {
                         title += totuLeContenu[i] + " ";
                     }
 
-                    if (title.split("<@&")){
-                        message.channel.send("Mets pas de mentions dans le titre bg")
-                        message.channel.send("mention de role askip")
-                        return
-                    }
-                    if (title.split("<@!")){
-                        message.channel.send("Mets pas de mentions dans le titre bg")
-                        message.channel.send("mention de gens askip")
-                        return
-                    }
+                    title = title.split("<@&")
+ 
+                    title = title.split("<@!")
                     
                     if (!(title.isArray)){
                         if (player != opponent){
