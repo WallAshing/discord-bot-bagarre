@@ -93,11 +93,16 @@ client.on('message', message => {
                         title += totuLeContenu[i] + " ";
                     }
 
-                    if (title.split("<@&") || title.split("<@!")){
-                        title = ["you", "troll"]
+                    if (title.split("<@&")){
+                        message.channel.send("Mets pas de mentions dans le titre bg")
+                        return
+                    }
+                    if (title.split("<@!")){
+                        message.channel.send("Mets pas de mentions dans le titre bg")
+                        return
                     }
                     
-                    if (!title.isArray){
+                    if (!(title.isArray)){
                         if (player != opponent){
                             if (random == 1){
                                 const fightEmbed = new MessageEmbed()
