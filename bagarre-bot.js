@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = "Nzg3MDE3MjA3MTA4MzM3Njc0.X9O05A.u8uJbdfjN4HBwBY16GU2zPcqK2A";
+const token = "Nzg3MDE3MjA3MTA4MzM3Njc0.X9O05A.0zJxiYkzWSYH74q2cVFhYoPNK90";
 const { MessageEmbed } = require('discord.js');
 
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
