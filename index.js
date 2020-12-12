@@ -43,7 +43,7 @@ client.on('message', message => {
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
-        message.channel.send('`Les commandes sont !help pour afficher cette réponse`');
+        message.channel.send('`Les commandes sont : \n!help qui affiche cette réponse \n!bagarre pour faire la bagarre contre le bot \n !bagarre @username pour faire la bagarre contre la personne mentionnée`');
         // message.delete();
     }
 
@@ -60,7 +60,7 @@ client.on('message', message => {
         };
     }
 
-    if (separatedText[0] === prefix + 'test'){
+    if (separatedText[0] === prefix + 'bagarre'){
         if (separatedText[1] != undefined){
             let separatedId = separatedText[1].split("!");
             if (separatedId[0] === "<@"){
