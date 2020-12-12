@@ -10,7 +10,7 @@ const lose = "https://cdn.discordapp.com/attachments/427551918009745433/78701355
 const winColor = "#5bf244";
 const loseColor = "#e01919";
 
-const prefix = "!"
+const prefix = "?"
 
 
 const winEmbed = new MessageEmbed()
