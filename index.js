@@ -34,7 +34,7 @@ client.on('message', message => {
     let separatedText = message.content.split(" ");
     let thisChannel = message.channel.name; // nom du channel
     let thisUserID = message.author.id; // id de la personne qui a écrite 
-    let thisMention = '<@' + thisUserID + '> '; // mentionne la personne qui a écris le message
+    let thisMention = '<@' + thisUserID + '>'; // mentionne la personne qui a écris le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     
 
@@ -92,7 +92,7 @@ client.on('message', message => {
             if (random == 1){
                 const winEmbed = new MessageEmbed()
                     .setColor(winColor)
-                    .setTitle('Tu a gagné')
+                    .setTitle('Tu a gagné' + thisMention)
                     .setAuthor('LA BAGARRE')
                     .setImage(win)
                 message.channel.send(winEmbed); // embed message pour la win
@@ -100,7 +100,7 @@ client.on('message', message => {
             if (random == 0){
                 const loseEmbed = new MessageEmbed()
                     .setColor(loseColor)
-                    .setTitle('Tu a perdu')
+                    .setTitle('Tu a perdu' + thisMention)
                     .setAuthor('LA BAGARRE')
                     .setImage(lose)
                 message.channel.send(loseEmbed); // embed message pour la lose
