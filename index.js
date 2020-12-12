@@ -93,29 +93,36 @@ client.on('message', message => {
                         title += totuLeContenu[i] + " ";
                     }
 
-                    if (player != opponent){
-                        if (random == 1){
-                            const fightEmbed = new MessageEmbed()
-                                .setColor(winColor)
-                                .setTitle(title)
-                                .setImage(win)
-                                .addFields(
-                                    { name: ':trophy:', value: opponent, inline: true },
-                                    { name: ':x:', value: player, inline: true }
-                                )
-                            message.channel.send(fightEmbed);
+                    title = title.split("<@!");
+
+                    if (title.length != 1){
+                        if (player != opponent){
+                            if (random == 1){
+                                const fightEmbed = new MessageEmbed()
+                                    .setColor(winColor)
+                                    .setTitle(title)
+                                    .setImage(win)
+                                    .addFields(
+                                        { name: ':trophy:', value: opponent, inline: true },
+                                        { name: ':x:', value: player, inline: true }
+                                    )
+                                message.channel.send(fightEmbed);
+                            }
+                            if (random == 0){
+                                const fightEmbed = new MessageEmbed()
+                                    .setColor(winColor)
+                                    .setTitle(title)
+                                    .setImage(win)
+                                    .addFields(
+                                        { name: ':trophy:', value: player, inline: true },
+                                        { name: ':x:', value: opponent, inline: true }
+                                    )
+                                message.channel.send(fightEmbed);
+                            };
                         }
-                        if (random == 0){
-                            const fightEmbed = new MessageEmbed()
-                                .setColor(winColor)
-                                .setTitle(title)
-                                .setImage(win)
-                                .addFields(
-                                    { name: ':trophy:', value: player, inline: true },
-                                    { name: ':x:', value: opponent, inline: true }
-                                )
-                            message.channel.send(fightEmbed);
-                        };
+                    }
+                    else{
+                        message.channel.send("Mets pas de mentions dans le titre bg")
                     }
                 }   
                 
