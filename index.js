@@ -53,29 +53,33 @@ client.on('message', message => {
                 let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
                 let player = thisMention;
                 let opponent = separatedText[1];
-
-                if (random == 1){
-                    const fightEmbed = new MessageEmbed()
-                        .setColor(winColor)
-                        .setTitle('LA BAGARRE')
-                        .setImage(win)
-                        .addFields(
-                            { name: ':x:', value: player, inline: true },
-                            { name: ':trophy:', value: opponent, inline: true }
-                        )
-                    message.channel.send(fightEmbed);
+                if (player != opponent){
+                    if (random == 1){
+                        const fightEmbed = new MessageEmbed()
+                            .setColor(winColor)
+                            .setTitle('LA BAGARRE')
+                            .setImage(win)
+                            .addFields(
+                                { name: ':trophy:', value: opponent, inline: true },
+                                { name: ':x:', value: player, inline: true }
+                            )
+                        message.channel.send(fightEmbed);
+                    }
+                    else{
+                        const fightEmbed = new MessageEmbed()
+                            .setColor(winColor)
+                            .setTitle('LA BAGARRE')
+                            .setImage(win)
+                            .addFields(
+                                { name: ':trophy:', value: player, inline: true },
+                                { name: ':x:', value: opponent, inline: true }
+                            )
+                        message.channel.send(fightEmbed);
+                    };
                 }
                 else{
-                    const fightEmbed = new MessageEmbed()
-                        .setColor(winColor)
-                        .setTitle('LA BAGARRE')
-                        .setImage(win)
-                        .addFields(
-                            { name: ':x:', value: opponent, inline: true },
-                            { name: ':trophy:', value: player, inline: true }
-                        )
-                    message.channel.send(fightEmbed);
-                };
+                    message.channel.send("Désolé c'est pas mazo friendly, réécris la commande bg");
+                }   
                 
             }
             else{
