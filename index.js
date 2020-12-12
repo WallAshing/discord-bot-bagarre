@@ -42,7 +42,7 @@ client.on('message', message => {
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
-        message.channel.send('`Les commandes sont : \n!help qui affiche cette réponse \n!bagarre pour faire la bagarre contre le bot \n!bagarre @username pour faire la bagarre contre la personne mentionnée`');
+        message.channel.send('`Les commandes sont : \n!help : affiche cette réponse \n!bagarre : faire la bagarre contre le bot \n!bagarre @username : faire la bagarre contre la personne mentionnée \n!bagarre @username unTitre : expliquer pourquoi faire la bagarre `');
         // message.delete();
     }
 
@@ -92,9 +92,11 @@ client.on('message', message => {
                     for (let i = 0; i < totuLeContenu.length; i++) {
                         title += totuLeContenu[i] + " ";
                     }
-
-                    title = title.split("<@!");
-                    title = title.split("<@&");
+                    
+                    // if (title.split("<@&") || title.split("<@!")){
+                    //     message.channel.send("T'as mal écris bg");
+                    //     return;
+                    // }
                     
                     if (title.length == 1){
                         if (player != opponent){
