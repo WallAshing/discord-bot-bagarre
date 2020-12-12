@@ -94,16 +94,16 @@ client.on('message', message => {
                     .setColor(winColor)
                     .setTitle('Tu a gagné ')
                     .setAuthor('LA BAGARRE')
-                    .addField(':trophy:', player, true)
+                    .addField(':trophy:', thisMention, true)
                     .setImage(win)
                 message.channel.send(winEmbed); // embed message pour la win
             }
             if (random == 0){
                 const loseEmbed = new MessageEmbed()
                     .setColor(loseColor)
-                    .setTitle('Tu a perdu ' + thisMention)
+                    .setTitle('Tu a perdu ')
                     .setAuthor('LA BAGARRE')
-                    .addField(':x:', player, true)
+                    .addField(':x:', thisMention, true)
                     .setImage(lose)
                 message.channel.send(loseEmbed); // embed message pour la lose
             };
@@ -111,4 +111,4 @@ client.on('message', message => {
     }
 });
 
-client.login(process.env.TOKEN);
+client.login("Nzg3MDE3MjA3MTA4MzM3Njc0.X9O05A.ZkRXvz5YE6P4JSVK9vHw_VtzsU4");
