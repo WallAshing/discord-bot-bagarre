@@ -92,7 +92,7 @@ client.on('message', message => {
             if (random == 1){
                 const winEmbed = new MessageEmbed()
                     .setColor(winColor)
-                    .setTitle('Tu a gagné' + thisMention)
+                    .setTitle('Tu a gagné ' + thisMention)
                     .setAuthor('LA BAGARRE')
                     .setImage(win)
                 message.channel.send(winEmbed); // embed message pour la win
@@ -100,7 +100,7 @@ client.on('message', message => {
             if (random == 0){
                 const loseEmbed = new MessageEmbed()
                     .setColor(loseColor)
-                    .setTitle('Tu a perdu' + thisMention)
+                    .setTitle('Tu a perdu ' + thisMention)
                     .setAuthor('LA BAGARRE')
                     .setImage(lose)
                 message.channel.send(loseEmbed); // embed message pour la lose
