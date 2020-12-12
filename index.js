@@ -42,7 +42,7 @@ client.on('message', message => {
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
-        message.channel.send('`Les commandes sont : \n!help : affiche cette réponse \n!bagarre : faire la bagarre contre le bot \n!bagarre @username : faire la bagarre contre la personne mentionnée \n!bagarre @username unTitre : expliquer pourquoi faire la bagarre `');
+        message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre `');
         // message.delete();
     }
 
