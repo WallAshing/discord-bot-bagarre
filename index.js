@@ -87,7 +87,7 @@ client.on('message', message => {
                     let player = thisMention;
                     let opponent = separatedText[1];
                     let totuLeContenu = separatedText.slice(2)
-                    let title = ""
+                    let title = [""]
 
                     for (let i = 0; i < totuLeContenu.length; i++) {
                         title += totuLeContenu[i] + " ";
