@@ -93,9 +93,7 @@ client.on('message', message => {
                         title += totuLeContenu[i] + " ";
                     }
 
-                    title = title.split("<@&")
- 
-                    title = title.split("<@!")
+                    title = title.split("<@")
                     
                     if (!(title.isArray)){
                         if (player != opponent){
