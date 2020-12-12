@@ -87,19 +87,17 @@ client.on('message', message => {
                     let player = thisMention;
                     let opponent = separatedText[1];
                     let totuLeContenu = separatedText.slice(2)
-                    let title = [""]
+                    let title = ""
 
                     for (let i = 0; i < totuLeContenu.length; i++) {
                         title += totuLeContenu[i] + " ";
                     }
-                    message.channel.send(title);
-                    message.channel.send(title.length);
-                    // if (title.split("<@&") || title.split("<@!")){
-                    //     message.channel.send("T'as mal écris bg");
-                    //     return;
-                    // }
+
+                    if (title.split("<@&") || title.split("<@!")){
+                        title = ["you", "troll"]
+                    }
                     
-                    if (title.length == 1){
+                    if (!title.isArray){
                         if (player != opponent){
                             if (random == 1){
                                 const fightEmbed = new MessageEmbed()
