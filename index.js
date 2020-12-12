@@ -61,7 +61,7 @@ client.on('message', message => {
                         .setImage(win)
                         .addFields(
                             { name: ':x:', value: player, inline: true },
-                            { name: 'Résultat', value: "-------------", inline: true },
+                            { name: 'Résultat', value: "winner \n" + opponent, inline: true },
                             { name: ':trophy:', value: opponent, inline: true }
                         )
                     message.channel.send(fightEmbed);
@@ -73,7 +73,7 @@ client.on('message', message => {
                         .setImage(win)
                         .addFields(
                             { name: ':x:', value: opponent, inline: true },
-                            { name: 'Résultat', value: "-------------", inline: true },
+                            { name: 'Résultat', value: "winner \n" + player, inline: true },
                             { name: ':trophy:', value: player, inline: true }
                         )
                     message.channel.send(fightEmbed);
