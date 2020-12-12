@@ -50,7 +50,7 @@ client.on('message', message => {
         if (separatedText[1] != undefined){
             let separatedId = separatedText[1].split("!");
             if (separatedId[0] === "<@"){
-                if(separatedText[2] != undefined){
+                if(separatedText[2] == undefined){
                     let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
                     let player = thisMention;
                     let opponent = separatedText[1];
@@ -86,7 +86,13 @@ client.on('message', message => {
                     let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
                     let player = thisMention;
                     let opponent = separatedText[1];
-                    let title = separatedText[2];
+                    let totuLeContenu = separatedText.slice(2)
+                    let title = ""
+                    
+                    for (let i = 0; i < totuLeContenu.length; i++) {
+                        title += totuLeContenu[i];
+                    }
+
                     if (player != opponent){
                         if (random == 1){
                             const fightEmbed = new MessageEmbed()
