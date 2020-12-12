@@ -94,7 +94,8 @@ client.on('message', message => {
                     }
 
                     title = title.split("<@!");
-
+                    title = title.split("<@&");
+                    
                     if (title.length == 1){
                         if (player != opponent){
                             if (random == 1){
