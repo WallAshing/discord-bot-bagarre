@@ -50,35 +50,66 @@ client.on('message', message => {
         if (separatedText[1] != undefined){
             let separatedId = separatedText[1].split("!");
             if (separatedId[0] === "<@"){
-                let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
-                let player = thisMention;
-                let opponent = separatedText[1];
-                if (player != opponent){
-                    if (random == 1){
-                        const fightEmbed = new MessageEmbed()
-                            .setColor(winColor)
-                            .setTitle('LA BAGARRE')
-                            .setImage(win)
-                            .addFields(
-                                { name: ':trophy:', value: opponent, inline: true },
-                                { name: ':x:', value: player, inline: true }
-                            )
-                        message.channel.send(fightEmbed);
+                if(separatedText[2] != undefined){
+                    let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
+                    let player = thisMention;
+                    let opponent = separatedText[1];
+                    if (player != opponent){
+                        if (random == 1){
+                            const fightEmbed = new MessageEmbed()
+                                .setColor(winColor)
+                                .setTitle('LA BAGARRE')
+                                .setImage(win)
+                                .addFields(
+                                    { name: ':trophy:', value: opponent, inline: true },
+                                    { name: ':x:', value: player, inline: true }
+                                )
+                            message.channel.send(fightEmbed);
+                        }
+                        else{
+                            const fightEmbed = new MessageEmbed()
+                                .setColor(winColor)
+                                .setTitle('LA BAGARRE')
+                                .setImage(win)
+                                .addFields(
+                                    { name: ':trophy:', value: player, inline: true },
+                                    { name: ':x:', value: opponent, inline: true }
+                                )
+                            message.channel.send(fightEmbed);
+                        };
                     }
                     else{
-                        const fightEmbed = new MessageEmbed()
-                            .setColor(winColor)
-                            .setTitle('LA BAGARRE')
-                            .setImage(win)
-                            .addFields(
-                                { name: ':trophy:', value: player, inline: true },
-                                { name: ':x:', value: opponent, inline: true }
-                            )
-                        message.channel.send(fightEmbed);
-                    };
+                        message.channel.send("Désolé c'est pas mazo friendly, réécris la commande bg");
+                    }
                 }
                 else{
-                    message.channel.send("Désolé c'est pas mazo friendly, réécris la commande bg");
+                    let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
+                    let player = thisMention;
+                    let opponent = separatedText[1];
+                    let title = separatedText[2];
+                    if (player != opponent){
+                        if (random == 1){
+                            const fightEmbed = new MessageEmbed()
+                                .setColor(winColor)
+                                .setTitle(title)
+                                .setImage(win)
+                                .addFields(
+                                    { name: ':trophy:', value: opponent, inline: true },
+                                    { name: ':x:', value: player, inline: true }
+                                )
+                            message.channel.send(fightEmbed);
+                        }
+                        else{
+                            const fightEmbed = new MessageEmbed()
+                                .setColor(winColor)
+                                .setTitle(title)
+                                .setImage(win)
+                                .addFields(
+                                    { name: ':trophy:', value: player, inline: true },
+                                    { name: ':x:', value: opponent, inline: true }
+                                )
+                            message.channel.send(fightEmbed);
+                        };
                 }   
                 
             }
