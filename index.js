@@ -88,9 +88,9 @@ client.on('message', message => {
                     let opponent = separatedText[1];
                     let totuLeContenu = separatedText.slice(2)
                     let title = ""
-                    
+
                     for (let i = 0; i < totuLeContenu.length; i++) {
-                        title += totuLeContenu[i];
+                        title += totuLeContenu[i] + " ";
                     }
 
                     if (player != opponent){
