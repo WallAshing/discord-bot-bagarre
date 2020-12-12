@@ -34,7 +34,7 @@ client.on('message', message => {
     let separatedText = message.content.split(" ");
     let thisChannel = message.channel.name; // nom du channel
     let thisUserID = message.author.id; // id de la personne qui a écrite 
-    let thisMention = '<@' + thisUserID + '>'; // mentionne la personne qui a écris le message
+    let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     
 
