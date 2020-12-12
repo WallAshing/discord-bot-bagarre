@@ -61,8 +61,8 @@ client.on('message', message => {
                                 .setTitle('LA BAGARRE')
                                 .setImage(win)
                                 .addFields(
-                                    { name: ':trophy:Winner:trophy:', value: opponent, inline: true },
-                                    { name: ':x:Loser:x:', value: player, inline: true }
+                                    { name: ':trophy: Winner :trophy:', value: opponent, inline: true },
+                                    { name: ':x: Loser :x:', value: player, inline: true }
                                 )
                             message.channel.send(fightEmbed);
                         }
@@ -72,8 +72,8 @@ client.on('message', message => {
                                 .setTitle('LA BAGARRE')
                                 .setImage(win)
                                 .addFields(
-                                    { name: ':trophy:Winner:trophy:', value: player, inline: true },
-                                    { name: ':x:Loser:x:', value: opponent, inline: true }
+                                    { name: ':trophy: Winner :trophy:', value: player, inline: true },
+                                    { name: ':x: Loser :x:', value: opponent, inline: true }
                                 )
                             message.channel.send(fightEmbed);
                         };
@@ -103,8 +103,8 @@ client.on('message', message => {
                                     .setTitle(title)
                                     .setImage(win)
                                     .addFields(
-                                        { name: ':trophy:Winner:trophy:', value: opponent, inline: true },
-                                        { name: ':x:Loser:x:', value: player, inline: true }
+                                        { name: ':trophy: Winner :trophy:', value: opponent, inline: true },
+                                        { name: ':x: Loser :x:', value: player, inline: true }
                                     )
                                 message.channel.send(fightEmbed);
                             }
@@ -114,8 +114,8 @@ client.on('message', message => {
                                     .setTitle(title)
                                     .setImage(win)
                                     .addFields(
-                                        { name: ':trophy:Winner:trophy:', value: player, inline: true },
-                                        { name: ':x:Loser:x:', value: opponent, inline: true }
+                                        { name: ':trophy: Winner :trophy:', value: player, inline: true },
+                                        { name: ':x: Loser :x:', value: opponent, inline: true }
                                     )
                                 message.channel.send(fightEmbed);
                             };
@@ -142,7 +142,7 @@ client.on('message', message => {
                     .setColor(winColor)
                     .setTitle('Tu a gagné ')
                     .setAuthor('LA BAGARRE')
-                    .addField(':trophy:Winner:trophy:', thisMention, true)
+                    .addField(':trophy: Winner :trophy:', thisMention, true)
                     .setImage(win)
                 message.channel.send(winEmbed); // embed message pour la win
             }
@@ -151,7 +151,7 @@ client.on('message', message => {
                     .setColor(loseColor)
                     .setTitle('Tu a perdu ')
                     .setAuthor('LA BAGARRE')
-                    .addField(':x:Loser:x:', thisMention, true)
+                    .addField(':x: Loser :x:', thisMention, true)
                     .setImage(lose)
                 message.channel.send(loseEmbed); // embed message pour la lose
             };
