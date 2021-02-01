@@ -190,7 +190,7 @@ client.on('message', message => {
         }
     }
 
-    if(separatedText[0] === prefix + "channelId"){
+    if(separatedText[0] === prefix + 'channelId'){
         message.channel.send("Voici l'ID" + thisChannelID)
     }
 
