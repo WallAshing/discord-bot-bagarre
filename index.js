@@ -12,6 +12,8 @@ const loseColor = "#e01919";
 
 const prefix = "?"
 
+let compteurPingu = 0
+let compteurJij = 0
 
 const winEmbed = new MessageEmbed()
     .setColor(winColor)
@@ -48,8 +50,8 @@ client.on('message', message => {
 
     if (separatedText[0] === prefix + 'bagarre'){
         if (separatedText[1] != undefined){
-            let separatedId = separatedText[1].split("!");
-            if (separatedId[0] === "<@"){
+            let separatedId = separatedText[1].split("@");
+            if (separatedId[0] === "<"){
                 if(separatedText[2] == undefined){
                     let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
                     let player = thisMention;
@@ -157,6 +159,43 @@ client.on('message', message => {
             };
         }
     }
+    if(thisUserID == "355629885106028545"){
+        let random = Math.floor(Math.random() * 10); // 0 à 9 aléatoire
+        if(random == 0){
+            if(compteurPingu > 0){
+                message.channel.send("Jignore avait une streak de : " + compteurPingu )
+            }
+            message.channel.send("https://cdn.discordapp.com/attachments/644478292145209357/805794675453329408/tg_dondon.png")
+        }
+        else{
+            compteurPingu++
+        }
+    }
+
+    if (thisUserID == "305787132407054337"){
+        let random = Math.floor(Math.random() * 10); // 0 à 9 aléatoire
+        if(random == 0){
+            if(compteurJij > 0){
+                message.channel.send("Jignore avait une streak de : " + compteurJij )
+            }
+            message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
+        }
+        else{
+            compteurJij++
+        }
+    }
+
+
+
+
+
+
 });
+
+
+
+
+
+
 
 client.login(process.env.TOKEN);
