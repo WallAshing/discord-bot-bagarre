@@ -34,7 +34,7 @@ client.once('ready', () => {
 client.on('message', message => {
 
     let separatedText = message.content.split(" ");
-    let thisChannel = message.channel.name; // nom du channel
+    let thisChannelID = message.channel.id; // id du channel
     let thisUserID = message.author.id; // id de la personne qui a écrite 
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
@@ -159,32 +159,40 @@ client.on('message', message => {
             };
         }
     }
-    if(thisUserID == "355629885106028545"){
-        let random = Math.floor(Math.random() * 10); // 0 à 9 aléatoire
-        if(random == 0){
-            if(compteurPingu > 0){
-                message.channel.send("Jignore avait une streak de : " + compteurPingu )
+
+    if(thisUserID == "305787132407054337" || (separatedText[0] === prefix + 'forceEvent1' && thisUserID == "175577596891889664")){
+        if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
+            let random = Math.floor(Math.random() * 2); // 0 à 9 aléatoire
+            if(random == 0){
+                if(compteurPingu > 0){
+                    message.channel.send("Pingu avait une streak de : " + compteurPingu )
+                }
+                message.channel.send("https://cdn.discordapp.com/attachments/644478292145209357/805794675453329408/tg_dondon.png")
             }
-            message.channel.send("https://cdn.discordapp.com/attachments/644478292145209357/805794675453329408/tg_dondon.png")
-        }
-        else{
-            compteurPingu++
+            else{
+                compteurPingu++
+            }
         }
     }
 
-    if (thisUserID == "305787132407054337"){
-        let random = Math.floor(Math.random() * 10); // 0 à 9 aléatoire
-        if(random == 0){
-            if(compteurJij > 0){
-                message.channel.send("Jignore avait une streak de : " + compteurJij )
+    if (thisUserID == "355629885106028545" || (separatedText[0] === prefix + 'forceEvent2' && thisUserID == "175577596891889664")){
+        if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
+            let random = Math.floor(Math.random() * 2); // 0 à 9 aléatoire
+            if(random == 0){
+                if(compteurJij > 0){
+                    message.channel.send("Jignore avait une streak de : " + compteurJij )
+                }
+                message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
             }
-            message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
-        }
-        else{
-            compteurJij++
+            else{
+                compteurJij++
+            }
         }
     }
 
+    if(separatedText[0] === prefix + "channelId"){
+        message.channel.send("Voici l'ID" + thisChannelID)
+    }
 
 
 
