@@ -160,7 +160,7 @@ client.on('message', message => {
         }
     }
 
-    if(thisUserID == "305787132407054337"){
+    if(thisUserID == "355629885106028545"){
         if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
             let random = Math.floor(Math.random() * 2); // 0 à 9 aléatoire
             if(random == 0){
@@ -170,7 +170,7 @@ client.on('message', message => {
         }
     }
 
-    if (thisUserID == "355629885106028545"){
+    if (thisUserID == "305787132407054337"){
         if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
             let random = Math.floor(Math.random() * 2); // 0 à 9 aléatoire
             if(random == 0){
