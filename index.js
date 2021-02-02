@@ -39,11 +39,12 @@ client.on('message', message => {
     let separatedText = message.content.split(" ");
     let thisGuildID = message.guild.id // id du serveur
     let thisChannelID = message.channel.id; // id du channel
+    let thisUserUsername = message.author.username;
     let thisUserID = message.author.id; // id de la personne qui a écrite
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écrit le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminId = "175577596891889664"
-
+    let thisUserAvatarId = message.author.avatar;
 
 
     if (message.author.bot) return;
@@ -206,11 +207,10 @@ client.on('message', message => {
     }
 
     if (command === prefix + 'avatar'){
-        const user = message.mentions.users.first() || message.author;
         const avatarEmbed = new MessageEmbed()
             .setColor(0x333333)
-            .setAuthor(user.username)
-            .setImage(user.displayAvatarURL);
+            .setAuthor(thisUserUsername)
+            .setImage("https://cdn.discordapp.com/" + thisUserID + "/" + thisUserAvatarId);
         message.channel.send(avatarEmbed);
     }
 
