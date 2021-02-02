@@ -42,8 +42,7 @@ client.on('message', message => {
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminId = "175577596891889664"
-    let thisAuthorId = message.author.id
-
+    
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
@@ -203,7 +202,8 @@ client.on('message', message => {
         message.channel.send(compteurJij)
     }
 
-    if (command === prefix + 'avatar' && thisAuthorId == adminId){
+    if (command === prefix + 'avatar' && thisUserID == adminId){
+        let infos = message.author.json()
         message.channel.send(message.author)
     }
 
