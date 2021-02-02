@@ -32,8 +32,6 @@ client.once('ready', () => {
 	console.log('Leggo la baguarre');
 });
 
-client.user.setActivity('Frapper des gens');
-
 client.on('message', message => {
 
 
@@ -213,8 +211,6 @@ client.on('message', message => {
         let userAvatar = theUser.avatar
         message.channel.send(userAvatar)
     }
-
-
 
 });
 
