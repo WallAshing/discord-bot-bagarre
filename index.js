@@ -218,6 +218,9 @@ client.on('message', message => {
                 let userAvatarID = data.User.avatar
                 let userUsername = data.User.username
 
+                console.log(data)
+                console.log(resp)
+                
                 const avatarEmbed = new MessageEmbed()
                     .setColor(0x333333)
                     .setAuthor(userUsername)
