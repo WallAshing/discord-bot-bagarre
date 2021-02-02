@@ -39,8 +39,8 @@ client.on('message', message => {
     let separatedText = message.content.split(" ");
     let thisGuildID = message.guild.id // id du serveur
     let thisChannelID = message.channel.id; // id du channel
-    let thisUserID = message.author.id; // id de la personne qui a écrite 
-    let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
+    let thisUserID = message.author.id; // id de la personne qui a écrite
+    let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écrit le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminId = "175577596891889664"
 
@@ -136,13 +136,13 @@ client.on('message', message => {
                         }
                     }
                     else{
-                        message.channel.send("Mets pas de mentions dans le titre bg")
+                        message.channel.send("Met pas de mention dans le titre bg")
                     }
                 }   
                 
             }
             else{
-                message.channel.send("T'as mal écris bg")
+                message.channel.send("T'as mal écrit bg")
             };
         }
         else{
