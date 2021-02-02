@@ -203,14 +203,7 @@ client.on('message', message => {
         message.channel.send(compteurJij)
     }
 
-
-
 });
-
-
-
-
-
 
 
 client.login(process.env.TOKEN);
