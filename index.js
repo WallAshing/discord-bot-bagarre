@@ -90,7 +90,7 @@ client.on('message', message => {
                         };
                     }
                     else{
-                        message.channel.send("Désolé c'est pas mazo friendly, réécris la commande bg");
+                        message.channel.send("Désolé c'est pas maso friendly, réécris la commande bg");
                     }
                 }
                 else{
@@ -207,10 +207,10 @@ client.on('message', message => {
 
     if (command === prefix + 'avatar'){
         const user = message.mentions.users.first() || message.author;
-        const avatarEmbed = new Discord.RichEmbed()
+        const avatarEmbed = new MessageEmbed()
             .setColor(0x333333)
             .setAuthor(user.username)
-            .setImage(user.avatarURL);
+            .setImage(user.displayAvatarURL);
         message.channel.send(avatarEmbed);
     }
 
