@@ -132,7 +132,7 @@ client.on('message', message => {
                             };
                         }
                         else{
-                            message.channel.send("Désolé c'est pas mazo friendly, réécris la commande bg");
+                            message.channel.send("Désolé c'est pas maso friendly, réécris la commande bg");
                         }
                     }
                     else{
