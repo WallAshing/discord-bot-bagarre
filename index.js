@@ -203,7 +203,7 @@ client.on('message', message => {
     }
 
     if (command === prefix + 'avatar' && thisUserID == adminId){
-        let infos = message.author.json()
+        let infos = message.author.toJSON
         message.channel.send(infos)
     }
 
