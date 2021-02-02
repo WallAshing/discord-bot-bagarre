@@ -207,7 +207,8 @@ client.on('message', message => {
 
     if (command === prefix + 'avatar' && thisUserID == adminId){
         let theUser = client.users.cache.get(separatedText[1])
-        message.channel.send(theUser)
+        let user = message.mentions.users.first() || message.author;
+        message.channel.send(user.avatarURL)
     }
 
 });
