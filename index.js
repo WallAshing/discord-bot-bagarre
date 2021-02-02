@@ -27,9 +27,12 @@ const loseEmbed = new MessageEmbed()
     .setAuthor('LA BAGARRE')
     .setImage(lose)
 
+    
 client.once('ready', () => {
 	console.log('Leggo la baguarre');
 });
+
+client.user.setActivity('Frapper des gens');
 
 client.on('message', message => {
 
@@ -42,7 +45,10 @@ client.on('message', message => {
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminId = "175577596891889664"
-    
+    let userAvatar = Discord.User
+
+
+
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
@@ -203,8 +209,9 @@ client.on('message', message => {
     }
 
     if (command === prefix + 'avatar' && thisUserID == adminId){
-        let infos = message.author.toJSON
-        message.channel.send(infos)
+        let theUser = client.users.cache.get(separatedText[1])
+        let userAvatar = theUser.avatar
+        message.channel.send(userAvatar)
     }
 
 
