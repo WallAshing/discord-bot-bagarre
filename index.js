@@ -35,7 +35,7 @@ client.on('message', message => {
 
 
 
-    let separatedText = command.split(" ");
+    let separatedText = message.content.split(" ");
     let thisGuildID = message.guild.id // id du serveur
     let thisChannelID = message.channel.id; // id du channel
     let thisUserID = message.author.id; // id de la personne qui a écrite 
@@ -187,18 +187,19 @@ client.on('message', message => {
         }
     }
 
-    if(separatedText[0] === prefix + 'channelid'){
+    if(command === prefix + 'channelid'){
         message.channel.send("Voici l'ID " + thisChannelID)
     }
-    if(separatedText[0] === prefix + 'serverid'){
+    
+    if(command === prefix + 'serverid'){
         message.channel.send("Voici l'ID " + thisGuildID)
     }
 
-    if(separatedText[0] === prefix + 'pingustreak'){
+    if(command === prefix + 'pingustreak'){
         message.channel.send(compteurPingu)
     }
 
-    if(separatedText[0] === prefix + 'jijstreak'){
+    if(command === prefix + 'jijstreak'){
         message.channel.send(compteurJij)
     }
 
