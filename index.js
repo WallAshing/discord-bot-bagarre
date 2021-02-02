@@ -33,7 +33,10 @@ client.once('ready', () => {
 
 client.on('message', message => {
 
-    let separatedText = message.content.split(" ");
+
+
+    let separatedText = command.split(" ");
+    let thisGuildID = message.guild.id // id du serveur
     let thisChannelID = message.channel.id; // id du channel
     let thisUserID = message.author.id; // id de la personne qui a écrite 
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
@@ -44,8 +47,12 @@ client.on('message', message => {
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
-        message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre `');
-        // message.delete();
+        if (thisGuildID == "533329812719403028"){
+            message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre \n?channelId : donne l\'id du channel \n?serverId : donne l\'id du serveur \n?PinguStreak : donne le nombre de fois que Pingu s\'est fait bolosse \n?JijStreak : donne le nombre de fois que Jij s\'est fait bolosse`');
+            // message.delete();
+        }else{
+            message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre \n?channelId : donne l\'id du channel \n?serverId : donne l\'id du serveur `');
+        }
     }
 
     if (separatedText[0] === prefix + 'bagarre'){
@@ -180,15 +187,18 @@ client.on('message', message => {
         }
     }
 
-    if(separatedText[0] === prefix + 'channelId'){
+    if(separatedText[0] === prefix + 'channelid'){
         message.channel.send("Voici l'ID " + thisChannelID)
     }
+    if(separatedText[0] === prefix + 'serverid'){
+        message.channel.send("Voici l'ID " + thisGuildID)
+    }
 
-    if(separatedText[0] === prefix + 'PinguStreak'){
+    if(separatedText[0] === prefix + 'pingustreak'){
         message.channel.send(compteurPingu)
     }
 
-    if(separatedText[0] === prefix + 'JijStreak'){
+    if(separatedText[0] === prefix + 'jijstreak'){
         message.channel.send(compteurJij)
     }
 
