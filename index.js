@@ -43,8 +43,8 @@ client.on('message', message => {
     let thisUserID = message.author.id; // id de la personne qui a écrite
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écrit le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
-    let adminId = "175577596891889664"
-    let thisUserAvatarId = message.author.avatar;
+    let adminID = "175577596891889664"
+    let thisUserAvatarID = message.author.avatar;
 
 
     if (message.author.bot) return;
@@ -207,14 +207,33 @@ client.on('message', message => {
     }
 
     if (command === prefix + 'avatar'){
-        const avatarEmbed = new MessageEmbed()
-            .setColor(0x333333)
-            .setAuthor(thisUserUsername)
-            .setImage("https://cdn.discordapp.com/" + thisUserID + "/" + thisUserAvatarId);
-        message.channel.send(avatarEmbed);
+
+        const url = 'https://discord.com/api';
+        
+        if(separatedText[1] != undefined){
+            fetch(url + "/" + separatedText[1])
+            .then((resp) => resp.json())
+            .then(function(data){
+                let userID = data.User.id
+                let userAvatarID = data.User.avatar
+                let userUsername = data.User.username
+
+                const avatarEmbed = new MessageEmbed()
+                    .setColor(0x333333)
+                    .setAuthor(userUsername)
+                    .setImage("https://cdn.discordapp.com/" + userID + "/" + userAvatarID);
+                message.channel.send(avatarEmbed);
+            })
+        }
+        else{
+            const avatarEmbed = new MessageEmbed()
+                .setColor(0x333333)
+                .setAuthor(thisUserUsername)
+                .setImage("https://cdn.discordapp.com/" + thisUserID + "/" + thisUserAvatarID);
+            message.channel.send(avatarEmbed);
+        }
     }
 
 });
-
 
 client.login(process.env.TOKEN);
