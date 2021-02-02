@@ -41,8 +41,8 @@ client.on('message', message => {
     let thisUserID = message.author.id; // id de la personne qui a écrite 
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
-    
-
+    let adminId = "175577596891889664"
+    let thisAuthorId = message.author.id
 
     if (message.author.bot) return;
 
@@ -169,7 +169,7 @@ client.on('message', message => {
 
     if(thisUserID == "355629885106028545"){
         if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
-            let random = Math.floor(Math.random() * 15); // 0 à 9 aléatoire
+            let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
             if(random == 0){
                 message.channel.send("https://cdn.discordapp.com/attachments/644478292145209357/805794675453329408/tg_dondon.png")
                 compteurPingu++
@@ -179,7 +179,7 @@ client.on('message', message => {
 
     if (thisUserID == "305787132407054337"){
         if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
-            let random = Math.floor(Math.random() * 15); // 0 à 9 aléatoire
+            let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
             if(random == 0){
                 message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
                 compteurJij++
@@ -202,6 +202,12 @@ client.on('message', message => {
     if(command === prefix + 'jijstreak'){
         message.channel.send(compteurJij)
     }
+
+    if (command === prefix + 'avatar' && thisAuthorId == adminId){
+        message.channel.send(message.author)
+    }
+
+
 
 });
 
