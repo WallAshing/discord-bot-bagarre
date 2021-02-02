@@ -207,8 +207,7 @@ client.on('message', message => {
 
     if (command === prefix + 'avatar' && thisUserID == adminId){
         let theUser = client.users.cache.get(separatedText[1])
-        let userAvatar = theUser.avatar
-        message.channel.send(userAvatar)
+        message.channel.send(theUser)
     }
 
 });
