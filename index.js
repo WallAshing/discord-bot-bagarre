@@ -205,10 +205,13 @@ client.on('message', message => {
         message.channel.send(compteurJij)
     }
 
-    if (command === prefix + 'avatar' && thisUserID == adminId){
-        let theUser = client.users.cache.get(separatedText[1])
-        let user = message.mentions.users.first() || message.author;
-        message.channel.send(user.avatarURL)
+    if (command === prefix + 'avatar'){
+        const user = message.mentions.users.first() || message.author;
+        const avatarEmbed = new Discord.RichEmbed()
+            .setColor(0x333333)
+            .setAuthor(user.username)
+            .setImage(user.avatarURL);
+        message.channel.send(avatarEmbed);
     }
 
 });
