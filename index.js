@@ -5,8 +5,6 @@ const { MessageEmbed } = require('discord.js');
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
 const lose = "https://cdn.discordapp.com/attachments/427551918009745433/787013550060601384/EjvEwh_WAAAzr9r.png";
 
-
-
 const winColor = "#5bf244";
 const loseColor = "#e01919";
 
@@ -206,36 +204,36 @@ client.on('message', message => {
         message.channel.send(compteurJij)
     }
 
-    if (command === prefix + 'avatar'){
+    // if (separatedText[0] === prefix + 'avatar'){
 
-        const url = 'https://discord.com/api';
+    //     const url = 'https://discord.com/api';
         
-        if(separatedText[1] != undefined){
-            fetch(url + "/" + separatedText[1])
-            .then((resp) => resp.json())
-            .then(function(data){
-                let userID = data.User.id
-                let userAvatarID = data.User.avatar
-                let userUsername = data.User.username
+    //     if(separatedText[1] != undefined){
+    //         fetch(url + "/" + separatedText[1])
+    //         .then((resp) => resp.json())
+    //         .then(function(data){
+    //             let userID = data.User.id
+    //             let userAvatarID = data.User.avatar
+    //             let userUsername = data.User.username
 
-                console.log(data)
-                console.log(resp)
-                
-                const avatarEmbed = new MessageEmbed()
-                    .setColor(0x333333)
-                    .setAuthor(userUsername)
-                    .setImage("https://cdn.discordapp.com/" + userID + "/" + userAvatarID);
-                message.channel.send(avatarEmbed);
-            })
-        }
-        else{
-            const avatarEmbed = new MessageEmbed()
-                .setColor(0x333333)
-                .setAuthor(thisUserUsername)
-                .setImage("https://cdn.discordapp.com/" + thisUserID + "/" + thisUserAvatarID);
-            message.channel.send(avatarEmbed);
-        }
-    }
+    //             console.log(data)
+    //             console.log(resp)
+
+    //             const avatarEmbed = new MessageEmbed()
+    //                 .setColor(0x333333)
+    //                 .setAuthor(userUsername)
+    //                 .setImage("https://cdn.discordapp.com/" + userID + "/" + userAvatarID);
+    //             message.channel.send(avatarEmbed);
+    //         })
+    //     }
+    //     if(separatedText[1] == undefined){
+    //         const avatarEmbed = new MessageEmbed()
+    //             .setColor(0x333333)
+    //             .setAuthor(thisUserUsername)
+    //             .setImage("https://cdn.discordapp.com/" + thisUserID + "/" + thisUserAvatarID);
+    //         message.channel.send(avatarEmbed);
+    //     }
+    // }
 
 });
 
