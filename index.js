@@ -43,7 +43,6 @@ client.on('message', message => {
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écris le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminId = "175577596891889664"
-    let userAvatar = Discord.User
 
 
 
