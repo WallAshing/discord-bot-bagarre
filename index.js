@@ -210,8 +210,8 @@ client.on('message', message => {
 
         const avatar = new MessageEmbed()
             .setTitle(user.username)
-            .setImg(user.displayAvatarURL);
-        message.channel.send(avatar);
+            .setImage(user.displayAvatarURL)
+        message.channel.send(avatar)
     }
 
 });
