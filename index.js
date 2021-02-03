@@ -205,12 +205,12 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        let user = "<@!" + separatedText[1] + ">"
+        let user = "<@" + separatedText[1] + ">"
         if(!user) return message.reply("mention un mec stp wesh")
 
         const avatar = new MessageEmbed()
-            .setAuthor(user)
             .setImage(user.displayAvatarURL)
+            .addField('je sais pas', player, true)
         message.channel.send(avatar)
     }
 
