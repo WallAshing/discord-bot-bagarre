@@ -162,7 +162,7 @@ client.on('message', message => {
                     .setTitle('Tu a perdu ')
                     .setAuthor('LA BAGARRE')
                     .addField(':x: Loser :x:', thisMention, true)
-                    .setImage(lose)
+                    .setImage(lose);
                 message.channel.send(loseEmbed); // embed message pour la lose
             };
         }
@@ -204,36 +204,15 @@ client.on('message', message => {
         message.channel.send(compteurJij)
     }
 
-    // if (separatedText[0] === prefix + 'avatar'){
+    if (separatedText[0] === prefix + 'avatar'){
+        let user = message.mentions.users.first()
+        if(!user) return message.reply("mention un mec stp wesh")
 
-    //     const url = 'https://discord.com/api';
-        
-    //     if(separatedText[1] != undefined){
-    //         fetch(url + "/" + separatedText[1])
-    //         .then((resp) => resp.json())
-    //         .then(function(data){
-    //             let userID = data.User.id
-    //             let userAvatarID = data.User.avatar
-    //             let userUsername = data.User.username
-
-    //             console.log(data)
-    //             console.log(resp)
-
-    //             const avatarEmbed = new MessageEmbed()
-    //                 .setColor(0x333333)
-    //                 .setAuthor(userUsername)
-    //                 .setImage("https://cdn.discordapp.com/" + userID + "/" + userAvatarID);
-    //             message.channel.send(avatarEmbed);
-    //         })
-    //     }
-    //     if(separatedText[1] == undefined){
-    //         const avatarEmbed = new MessageEmbed()
-    //             .setColor(0x333333)
-    //             .setAuthor(thisUserUsername)
-    //             .setImage("https://cdn.discordapp.com/" + thisUserID + "/" + thisUserAvatarID);
-    //         message.channel.send(avatarEmbed);
-    //     }
-    // }
+        const avatar = new MessageEmbed()
+            .setTitle(user.username)
+            .setImg(user.displayAvatarURL);
+        message.channel.send(avatar);
+    }
 
 });
 
