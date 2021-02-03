@@ -209,7 +209,7 @@ client.on('message', message => {
         if(!user) return message.reply("mention un mec stp wesh")
 
         const avatar = new MessageEmbed()
-            .setTitle(user)
+            .setAuthor(user)
             .setImage(user.displayAvatarURL)
         message.channel.send(avatar)
     }
