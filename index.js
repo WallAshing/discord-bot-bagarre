@@ -210,7 +210,7 @@ client.on('message', message => {
 
         const avatar = new MessageEmbed()
             .setImage(user.displayAvatarURL)
-            .addField('je sais pas', player, true)
+            .addField('je sais pas', user, true)
         message.channel.send(avatar)
     }
 
