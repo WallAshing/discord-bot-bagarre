@@ -205,7 +205,7 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        let user = message.mentions.users.first()
+        let user = "<@!" + separatedText[1] + ">"
         if(!user) return message.reply("mention un mec stp wesh")
 
         const avatar = new MessageEmbed()
