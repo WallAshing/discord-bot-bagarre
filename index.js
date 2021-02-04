@@ -216,6 +216,16 @@ client.on('message', message => {
         }
     }
 
+    if (separatedText[0] === prefix + "time"){
+        if(!message.mentions.users.first()){
+            let Time = message.author.createdTimestamp
+            return message.channel.send(Time)
+        }else{
+            let user = message.mentions.users.first()
+            return message.channel.send(user.createdTimestamp)
+        }
+    }
+
 });
 
 client.login(process.env.TOKEN);
