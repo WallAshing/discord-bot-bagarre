@@ -181,7 +181,7 @@ client.on('message', message => {
     if (thisUserID == "305787132407054337"){
         if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
             let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
-            if(random == 0){
+            if(random == 13){
                 message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
                 compteurJij++
             }
@@ -205,10 +205,10 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
-        let avatar2 = message.author.avatarURL({ dynamic:true })
+        // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
+        let avatar = message.author.avatarURL({ dynamic:true, size:1024})
+        // message.channel.send(avatar)
         message.channel.send(avatar)
-        message.channel.send(avatar2)
 
     }
 
