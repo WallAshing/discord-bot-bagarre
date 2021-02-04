@@ -205,11 +205,15 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
-        let avatar = message.author.avatarURL({ dynamic:true, size:1024})
-        // message.channel.send(avatar)
-        message.channel.send(avatar)
-
+        if(!message.mentions.first()){
+            // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
+            let avatar = message.author.avatarURL({ dynamic:true, size:1024})
+            // message.channel.send(avatar)
+            return message.channel.send(avatar)
+        }else{
+            let user = message.mentions.first()
+            return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
+        }
     }
 
 });
