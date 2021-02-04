@@ -205,7 +205,6 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        // https://cdn.discordapp.com/avatars/
         let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
         let avatar2 = message.author.avatarURL({ dynamic:true })
         message.channel.send(avatar)
