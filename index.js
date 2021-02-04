@@ -205,13 +205,20 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        let user = "<@" + separatedText[1] + ">"
-        if(!user) return message.reply("mention un mec stp wesh")
+        message.channel.send(message.author.avatar)
+        module.exports = {
+            name: 'avatar',
+            description: 'returns a users avatar',
+            execute(message, args){
+                const embed = new MessageEmbed()
+                    embed.setTitle("Your avatar :")
+                    embed.setThumbnail(message.author.avatar)
+                    embed.setDescription("this is your dick")
+                    embed.setColor("RANDOM")
+                return message.channel.send(embed)
 
-        const avatar = new MessageEmbed()
-            .setImage(user.displayAvatarURL)
-            .addField('je sais pas', user, true)
-        message.channel.send(avatar)
+            }
+        }
     }
 
 });
