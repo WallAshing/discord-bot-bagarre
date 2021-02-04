@@ -205,20 +205,12 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        message.channel.send(message.author.avatar)
-        module.exports = {
-            name: 'avatar',
-            description: 'returns a users avatar',
-            execute(message, args){
-                const embed = new MessageEmbed()
-                    embed.setTitle("Your avatar :")
-                    embed.setThumbnail(message.author.avatar)
-                    embed.setDescription("this is your dick")
-                    embed.setColor("RANDOM")
-                return message.channel.send(embed)
+        // https://cdn.discordapp.com/avatars/
+        let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
+        let avatar2 = message.author.avatarURL({ dynamic:true })
+        message.channel.send(avatar)
+        message.channel.send(avatar2)
 
-            }
-        }
     }
 
 });
