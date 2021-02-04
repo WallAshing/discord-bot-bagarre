@@ -219,7 +219,7 @@ client.on('message', message => {
     if (separatedText[0] === prefix + "time"){
         if(!message.mentions.users.first()){
             let Time = message.author.createdTimestamp
-            let Time2 = message.author.createdAt
+            let Time2 = message.createdAt
             message.channel.send(Time)
             return message.channel.send(Time2)
         }else{
