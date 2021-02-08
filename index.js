@@ -213,7 +213,7 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
             let user = "<@" + separatedText[1] + ">"
-            let avatar = user.avatarURL({ dynamic:true, size:1024})
+            let avatar = user.users.avatarURL({ dynamic:true, size:1024})
             return message.channel.send(avatar)
         }
         if(message.mentions.users.first()){
