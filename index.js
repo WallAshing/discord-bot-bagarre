@@ -212,22 +212,10 @@ client.on('message', message => {
             return message.channel.send(avatar)
         }
         if(!message.mentions.users.first()){
-            let arg = "<@" + separatedText[1] + ">"
-            let avatarID = ""
-            let url = 'https://discord.com/api/v8/users/' + separatedText[1];
 
-            fetch(url, {
-                method:'POST',
-                headers: {
-                    Authorization: 'Bot' + " " + TOKEN,
-                  }
-            })
-            .then((resp) => resp.json())
-            .then(function(data){
-                avatarID = data.avatar
-            })
+            let test = bot.users.get(separatedText[1])
 
-            message.channel.send("https://cdn.discordapp.com/avatars/" + separatedText[1] + "/" +  avatarID + "?dynamic=true&size=1024")
+            message.channel.send(test.avatarURL)
 
             // let user = arg.mentions.users.first()
             // let avatar = user.avatarURL({ dynamic:true, size:1024})
