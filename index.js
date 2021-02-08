@@ -213,7 +213,7 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            let test = bot.users.get(separatedText[1])
+            let test = users.get(separatedText[1])
 
             message.channel.send(test.avatarURL)
 
