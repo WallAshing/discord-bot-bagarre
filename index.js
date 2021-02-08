@@ -205,30 +205,24 @@ client.on('message', message => {
     }
 
     if (separatedText[0] === prefix + 'avatar'){
-        if(!message.mentions.users.first()){
+        if (!separatedText[1]){
             // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
             let avatar = message.author.avatarURL({ dynamic:true, size:1024})
             // message.channel.send(avatar)
             return message.channel.send(avatar)
-        }else{
+            let user = message.mentions.users.first()
+            return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
+        }
+        if(!message.mentions.users.first()){
+            let user = "<@" + separatedText[1] + ">"
+            let avatar = user.avatarURL({ dynamic:true, size:1024})
+            return message.channel.send(avatar)
+        }
+        else{
             let user = message.mentions.users.first()
             return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
         }
     }
-
-    if (separatedText[0] === prefix + "time"){
-        if(!message.mentions.users.first()){
-            let Time = message.author.createdTimestamp
-            let Time2 = message.createdAt
-            message.channel.send(Time)
-            return message.channel.send(Time2)
-        }else{
-            let user = message.mentions.users.first()
-            message.channel.send(user.createdTimestamp)
-            return message.channel.send(user.createdAt)
-        }
-    }
-
 });
 
 client.login(process.env.TOKEN);
