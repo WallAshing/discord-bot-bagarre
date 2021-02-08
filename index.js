@@ -210,15 +210,13 @@ client.on('message', message => {
             let avatar = message.author.avatarURL({ dynamic:true, size:1024})
             // message.channel.send(avatar)
             return message.channel.send(avatar)
-            let user = message.mentions.users.first()
-            return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
         }
         if(!message.mentions.users.first()){
             let user = "<@" + separatedText[1] + ">"
             let avatar = user.avatarURL({ dynamic:true, size:1024})
             return message.channel.send(avatar)
         }
-        else{
+        if(message.mentions.users.first()){
             let user = message.mentions.users.first()
             return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
         }
