@@ -214,18 +214,14 @@ client.on('message', message => {
         if(!message.mentions.users.first()){
             let arg = "<@" + separatedText[1] + ">"
             let avatarID = ""
-            console.log(message)
-            message.channel.send(arg)
             let url = 'https://discord.com/api/v8/users/' + separatedText[1];
 
-            var myHeaders = new Headers({"Authorization": "bot" + " " + TOKEN});
-
-            var myInit = {  method: 'GET',
-                            headers: myHeaders,
-                            mode: 'cors',
-                            cache: 'default' };
-
-            fetch(url, myInit)
+            fetch(url, {
+                method:'POST',
+                headers: {
+                    Authorization: 'Bot' + " " + TOKEN,
+                  }
+            })
             .then((resp) => resp.json())
             .then(function(data){
                 avatarID = data.avatar
