@@ -214,9 +214,9 @@ client.on('message', message => {
         if(!message.mentions.users.first()){
             let arg = "<@" + separatedText[1] + ">"
             message.channel.send(arg)
-            let user = arg.mentions.users.first()
-            let avatar = user.avatarURL({ dynamic:true, size:1024})
-            return message.channel.send(avatar)
+            // let user = arg.mentions.users.first()
+            // let avatar = user.avatarURL({ dynamic:true, size:1024})
+            // return message.channel.send(avatar)
         }
         if(message.mentions.users.first()){
             let user = message.mentions.users.first()
