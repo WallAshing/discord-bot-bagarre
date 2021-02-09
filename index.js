@@ -213,7 +213,7 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            console.log(client.users)
+            console.log(client.user)
 
 
             // let test = client.users.cache.get("separatedText[1]")
