@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const { MessageEmbed } = require('discord.js');
 
+const jesaispas = new Client();
+
+
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
 const lose = "https://cdn.discordapp.com/attachments/427551918009745433/787013550060601384/EjvEwh_WAAAzr9r.png";
 
@@ -213,9 +216,9 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            console.log(client.users)
+            console.log(jesaispas.users)
 
-            console.log(client.getUser({
+            console.log(jesaispas.getUser({
                 userID: separatedText[1],
             }))
 
