@@ -213,12 +213,7 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            console.log(jesaispas.users)
-
-            console.log(jesaispas.getUser({
-                userID: separatedText[1],
-            }))
-
+            console.log(client.users)
 
 
             // let test = client.users.cache.get("separatedText[1]")
