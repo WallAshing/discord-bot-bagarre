@@ -213,13 +213,17 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
+            let user = "<@175577596891889664>".mentions.users.first()
+            let user2 = "<@!175577596891889664>".mentions.users.first()
+
+
             console.log("175577596891889664".avatarURL({ dynamic:true, size:1024}))
-            console.log("<@175577596891889664>".avatarURL({ dynamic:true, size:1024}))
-            console.log("<@!175577596891889664>".avatarURL({ dynamic:true, size:1024}))
+            console.log(user.avatarURL({ dynamic:true, size:1024}))
+            console.log(user2.avatarURL({ dynamic:true, size:1024}))
 
             console.log("175577596891889664".avatar)
-            console.log("<@175577596891889664>".avatar)
-            console.log("<@!175577596891889664>".avatar)
+            console.log(user.avatar)
+            console.log(user2.avatar)
 
             // utiliser une fonction externe de fetch ?
 
