@@ -13,6 +13,25 @@ const prefix = "?"
 let compteurPingu = 0
 let compteurJij = 0
 
+let result = ""
+
+
+function search(id){
+    const url = 'https://discord.com/api/v8/users/'+ id;
+    
+        fetch(url)
+        .then((resp) => resp.json())
+        .then(function(data){
+                result = data.avatar
+        });
+
+    return result;
+}
+
+
+
+
+
 const winEmbed = new MessageEmbed()
     .setColor(winColor)
     .setTitle('Tu a gagné')
@@ -24,7 +43,6 @@ const loseEmbed = new MessageEmbed()
     .setTitle('Tu as perdu')
     .setAuthor('LA BAGARRE')
     .setImage(lose)
-
     
 client.once('ready', () => {
 	console.log('Leggo la baguarre');
@@ -213,17 +231,9 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            let user = "<@175577596891889664>".mentions.users.first()
-            let user2 = "<@!175577596891889664>".mentions.users.first()
-
-
-            console.log("175577596891889664".avatarURL({ dynamic:true, size:1024}))
-            console.log(user.avatarURL({ dynamic:true, size:1024}))
-            console.log(user2.avatarURL({ dynamic:true, size:1024}))
-
-            console.log("175577596891889664".avatar)
-            console.log(user.avatar)
-            console.log(user2.avatar)
+            search("175577596891889664");
+            
+            message.channel.send(result)
 
             // utiliser une fonction externe de fetch ?
 
