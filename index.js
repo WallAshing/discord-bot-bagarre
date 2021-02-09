@@ -221,6 +221,9 @@ client.on('message', message => {
             console.log("<@175577596891889664>".avatar)
             console.log("<@!175577596891889664>".avatar)
 
+            // utiliser une fonction externe de fetch ?
+
+
 
             // let test = client.users.cache.get("separatedText[1]")
 
