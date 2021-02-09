@@ -213,9 +213,16 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            let test = client.users.cache.get("separatedText[1]")
+            console.log(Discord.Client)
 
-            message.channel.send(test.avatarURL)
+
+            // let test = client.users.cache.get("separatedText[1]")
+
+            // test.toJSON ???? maybe
+
+            // tester les commandes Client. ya possiblement des choses intéressantes
+             
+            // message.channel.send(test.avatarURL)
 
             // let user = arg.mentions.users.first()
             // let avatar = user.avatarURL({ dynamic:true, size:1024})
