@@ -213,7 +213,13 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            console.log(client.user)
+            console.log("175577596891889664".avatarURL({ dynamic:true, size:1024}))
+            console.log("<@175577596891889664>".avatarURL({ dynamic:true, size:1024}))
+            console.log("<@!175577596891889664>".avatarURL({ dynamic:true, size:1024}))
+
+            console.log("175577596891889664".avatar)
+            console.log("<@175577596891889664>".avatar)
+            console.log("<@!175577596891889664>".avatar)
 
 
             // let test = client.users.cache.get("separatedText[1]")
