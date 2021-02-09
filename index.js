@@ -16,17 +16,17 @@ let compteurJij = 0
 let result = ""
 
 
-function search(id){
-    const url = 'https://discord.com/api/v8/users/'+ id;
+// function search(id){
+//     const url = 'https://discord.com/api/v8/users/'+ id;
     
-        fetch(url)
-        .then((resp) => resp.json())
-        .then(function(data){
-                result = data.avatar
-        });
+//         fetch(url)
+//         .then((resp) => resp.json())
+//         .then(function(data){
+//                 result = data.avatar
+//         });
 
-    return result;
-}
+//     return result;
+// }
 
 
 
@@ -231,9 +231,9 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            search("175577596891889664");
+            // search("175577596891889664");
             
-            message.channel.send("test " + result)
+            message.channel.send("test ")
 
             // utiliser une fonction externe de fetch ?
 
