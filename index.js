@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const { MessageEmbed } = require('discord.js');
 
-const jesaispas = new Discord.ClientUser;
+const jesaispas = new Discord.ClientUser();
 
 
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
