@@ -213,14 +213,17 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            console.log(Discord.Client)
+            console.log(client.users)
+
+            console.log(client.getUser({
+                userID: separatedText[1],
+            }))
+
 
 
             // let test = client.users.cache.get("separatedText[1]")
 
             // test.toJSON ???? maybe
-
-            // tester les commandes Client. ya possiblement des choses intéressantes
              
             // message.channel.send(test.avatarURL)
 
