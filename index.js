@@ -233,7 +233,7 @@ client.on('message', message => {
 
             search("175577596891889664");
             
-            message.channel.send(result)
+            message.channel.send("test " + result)
 
             // utiliser une fonction externe de fetch ?
 
