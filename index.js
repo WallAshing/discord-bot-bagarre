@@ -231,13 +231,13 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            // search("175577596891889664");
+            message.content = "<@" + separatedText[1] + ">"
             
-            message.channel.send("test ")
-
             // utiliser une fonction externe de fetch ?
+            
+            let user = message.mentions.users.first()
 
-
+            return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
 
             // let test = client.users.cache.get("separatedText[1]")
 
