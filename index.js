@@ -233,6 +233,8 @@ client.on('message', message => {
 
             message.content = "<@" + separatedText[1] + ">"
             
+            console.log(message)
+
             // utiliser une fonction externe de fetch ?
             
             let user = message.mentions.users.first()
