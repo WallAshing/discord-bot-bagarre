@@ -252,7 +252,8 @@ client.on('message', message => {
             // return message.channel.send(avatar)
         }
         if(message.mentions.users.first()){
-            console.log(message)
+            console.log(message.mentions.users)
+            console.log(message.mentions.users.first())
 
             let user = message.mentions.users.first()
             return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
