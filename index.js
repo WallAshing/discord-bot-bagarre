@@ -231,7 +231,7 @@ client.on('message', message => {
         }
         if(!message.mentions.users.first()){
 
-            message.content = "<@" + separatedText[1] + ">"
+            // message.content = "<@" + separatedText[1] + ">"
             
             console.log(message)
 
