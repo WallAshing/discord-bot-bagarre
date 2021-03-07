@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const fetch = require('node-fetch')
 const client = new Discord.Client();
 const { MessageEmbed } = require('discord.js');
 
@@ -13,7 +14,7 @@ const prefix = "?"
 let compteurPingu = 0
 let compteurJij = 0
 
-let result = ""
+// let result = ""
 
 
 // function search(id){
@@ -27,9 +28,6 @@ let result = ""
 
 //     return result;
 // }
-
-
-
 
 
 const winEmbed = new MessageEmbed()
@@ -48,9 +46,7 @@ client.once('ready', () => {
 	console.log('Leggo la baguarre');
 });
 
-client.on('message', message => {
-
-
+client.on('message', async (message) => {
 
     let separatedText = message.content.split(" ");
     let thisGuildID = message.guild.id // id du serveur
@@ -61,7 +57,45 @@ client.on('message', message => {
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminID = "175577596891889664"
     let thisUserAvatarID = message.author.avatar;
+    
+    let hours = 0
+    let minutes = 0
+    let secondes = 0
+    let hours2 = 0
+    let minutes2 = 0
 
+
+    // function checkTime(){
+
+    //     while(hours == 12 && minutes == 45 && secondes < 10){
+    //         setTimeout( function time() {
+    //             let start = Date.now()
+            
+    //             let time = start % 86400000;
+            
+    //             hours = Math.floor(time / 3600000) + 1;
+            
+    //             hours2 = hours + ":";
+            
+    //             minutes = Math.floor((time % 3600000) / 60000)
+                
+    //             minutes2 = minutes + ":"
+            
+    //             if (minutes < 10){
+    //                 minutes2 = "0" + minutes2
+    //             };
+            
+    //             secondes = Math.floor((time % 3600000) % 60000 / 1000)
+                
+    //         }, 1000);
+    //     }
+
+    //     message.channel.send("IT'S SOUPE TIME");
+
+    // }
+
+
+    // checkTime();
 
     if (message.author.bot) return;
 
@@ -230,26 +264,13 @@ client.on('message', message => {
             return message.channel.send(avatar)
         }
         if(!message.mentions.users.first()){
-
-            // message.content = "<@" + separatedText[1] + ">"
-            
-            console.log(message)
-
-            // utiliser une fonction externe de fetch ?
-            
-            let user = message.mentions.users.first()
-
-            return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
-
-            // let test = client.users.cache.get("separatedText[1]")
-
-            // test.toJSON ???? maybe
-             
-            // message.channel.send(test.avatarURL)
-
-            // let user = arg.mentions.users.first()
-            // let avatar = user.avatarURL({ dynamic:true, size:1024})
-            // return message.channel.send(avatar)
+            let id = separatedText[1]
+            let getUser = async () => {
+                let result = await fetch('https://discord.com/api/v8/users/' + id)
+                let json = await result.json()
+                return json
+            }
+            let user = await getUser()
         }
         if(message.mentions.users.first()){
             console.log(message.mentions.users)
@@ -259,6 +280,14 @@ client.on('message', message => {
             return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
         }
     }
+
+    if (separatedText[0] === prefix + 'time'){
+        // message.channel.send("Il est très pécisément: " + hours2 + minutes2 + secondes)
+        console.log(message)
+    }
+
+
+
 });
 
 client.login(process.env.TOKEN);
