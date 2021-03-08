@@ -3,6 +3,9 @@ const fetch = require('node-fetch')
 const client = new Discord.Client();
 const { MessageEmbed } = require('discord.js');
 
+
+
+
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
 const lose = "https://cdn.discordapp.com/attachments/427551918009745433/787013550060601384/EjvEwh_WAAAzr9r.png";
 
@@ -30,20 +33,9 @@ let compteurJij = 0
 // }
 
 
-const winEmbed = new MessageEmbed()
-    .setColor(winColor)
-    .setTitle('Tu a gagné')
-    .setAuthor('LA BAGARRE')
-    .setImage(win)
-
-const loseEmbed = new MessageEmbed()
-    .setColor(loseColor)
-    .setTitle('Tu as perdu')
-    .setAuthor('LA BAGARRE')
-    .setImage(lose)
-    
 client.once('ready', () => {
 	console.log('Leggo la baguarre');
+    
 });
 
 client.on('message', async (message) => {
@@ -57,7 +49,10 @@ client.on('message', async (message) => {
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminID = "175577596891889664"
     let thisUserAvatarID = message.author.avatar;
-    
+
+    const channelEpc = client.channels.cache.get("533329816447877130");
+
+
     let hours = 0
     let minutes = 0
     let secondes = 0
@@ -65,37 +60,36 @@ client.on('message', async (message) => {
     let minutes2 = 0
 
 
-    // function checkTime(){
+    function checkTime(){
 
-    //     while(hours == 12 && minutes == 45 && secondes < 10){
-    //         setTimeout( function time() {
-    //             let start = Date.now()
+        while(hours == 12 && minutes == 45 && secondes < 10){
+            setTimeout( function time() {
+                let start = Date.now()
             
-    //             let time = start % 86400000;
+                let time = start % 86400000;
             
-    //             hours = Math.floor(time / 3600000) + 1;
+                hours = Math.floor(time / 3600000) + 1;
             
-    //             hours2 = hours + ":";
+                hours2 = hours + ":";
             
-    //             minutes = Math.floor((time % 3600000) / 60000)
+                minutes = Math.floor((time % 3600000) / 60000)
                 
-    //             minutes2 = minutes + ":"
+                minutes2 = minutes + ":"
             
-    //             if (minutes < 10){
-    //                 minutes2 = "0" + minutes2
-    //             };
+                if (minutes < 10){
+                    minutes2 = "0" + minutes2
+                };
             
-    //             secondes = Math.floor((time % 3600000) % 60000 / 1000)
+                secondes = Math.floor((time % 3600000) % 60000 / 1000)
                 
-    //         }, 1000);
-    //     }
+            }, 1000);
+        }
 
-    //     message.channel.send("IT'S SOUPE TIME");
+        channelEpc.send("IT'S SOUPE TIME");
+        
+    }
 
-    // }
-
-
-    // checkTime();
+    checkTime();
 
     if (message.author.bot) return;
 
@@ -265,6 +259,9 @@ client.on('message', async (message) => {
         }
         if(!message.mentions.users.first()){
             let id = separatedText[1]
+
+            // maybe convertir en string / int ?
+
             let getUser = async () => {
                 let result = await fetch('https://discord.com/api/v8/users/' + id)
                 let json = await result.json()
@@ -282,11 +279,9 @@ client.on('message', async (message) => {
     }
 
     if (separatedText[0] === prefix + 'time'){
-        // message.channel.send("Il est très pécisément: " + hours2 + minutes2 + secondes)
+        message.channel.send("Il est très pécisément: " + hours2 + minutes2 + secondes)
         console.log(message)
     }
-
-
 
 });
 
