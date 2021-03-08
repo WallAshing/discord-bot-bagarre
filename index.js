@@ -60,36 +60,36 @@ client.on('message', async (message) => {
     let minutes2 = 0
 
 
-    function checkTime(){
+    // function checkTime(){
 
-        while(hours == 12 && minutes == 45 && secondes < 10){
-            setTimeout( function time() {
-                let start = Date.now()
+    //     while(hours == 12 && minutes == 45 && secondes < 10){
+    //         setTimeout( function time() {
+    //             let start = Date.now()
             
-                let time = start % 86400000;
+    //             let time = start % 86400000;
             
-                hours = Math.floor(time / 3600000) + 1;
+    //             hours = Math.floor(time / 3600000) + 1;
             
-                hours2 = hours + ":";
+    //             hours2 = hours + ":";
             
-                minutes = Math.floor((time % 3600000) / 60000)
+    //             minutes = Math.floor((time % 3600000) / 60000)
                 
-                minutes2 = minutes + ":"
+    //             minutes2 = minutes + ":"
             
-                if (minutes < 10){
-                    minutes2 = "0" + minutes2
-                };
+    //             if (minutes < 10){
+    //                 minutes2 = "0" + minutes2
+    //             };
             
-                secondes = Math.floor((time % 3600000) % 60000 / 1000)
+    //             secondes = Math.floor((time % 3600000) % 60000 / 1000)
                 
-            }, 1000);
-        }
+    //         }, 1000);
+    //     }
 
-        channelEpc.send("IT'S SOUPE TIME");
+    //     channelEpc.send("IT'S SOUPE TIME");
         
-    }
+    // }
 
-    checkTime();
+    // checkTime();
 
     if (message.author.bot) return;
 
