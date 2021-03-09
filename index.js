@@ -89,7 +89,7 @@ client.on('message', async (message) => {
 
                 channelEpc.send("Il est : " + hours2 + ":" + minutes2 + ":" + secondes);
 
-                if(hours == 12 && minutes == 45 && secondes <= 10){
+                if(hours == 18 && minutes == 43 && secondes <= 10){
                     SoupeTimeAble = true;
 
                 }
@@ -99,6 +99,7 @@ client.on('message', async (message) => {
 
         if(SoupeTimeAble == true){
             channelEpc.send("IT'S SOUPE TIME");
+            SoupeTimeAble == false
             return
         }
     }
@@ -295,8 +296,8 @@ client.on('message', async (message) => {
     }
 
     if (separatedText[0] === prefix + 'enableSoupeTime'){
-        checkTime();
         message.channel.send("Soupe time enabled")
+        checkTime();
     }
 
 });
