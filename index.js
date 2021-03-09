@@ -64,7 +64,7 @@ client.on('message', async (message) => {
 
 
     function checkTime(){
-        while(hours != 12 && minutes != 45){
+        while(!SoupeTimeAble){
             setTimeout(() => {
                 let start = Date.now()
             
@@ -74,37 +74,36 @@ client.on('message', async (message) => {
             
                 hours2 = hours + ":";
             
-                minutes = Math.floor((time % 3600000) / 60000)
+                minutes = Math.floor((time % 3600000) / 60000);
                 
-                minutes2 = minutes + ":"
+                minutes2 = minutes + ":";
             
                 if (minutes < 10){
-                    minutes2 = "0" + minutes2
+                    minutes2 = "0" + minutes2;
                 };
             
-                secondes = Math.floor((time % 3600000) % 60000 / 1000)
+                secondes = Math.floor((time % 3600000) % 60000 / 1000);
                 
                 console.log("Il est très pécisément: " + hours2 + minutes2 + secondes);
 
-                SoupeTimeAble = false
+                SoupeTimeAble = false;
 
-                // if(hours == 12 && minutes == 45 && secondes <= 10){
-                //     SoupeTimeAble = true
+                channelEpc.send("Il est : " + hours2 + ":" + minutes2 + ":" + secondes);
 
-                // }
+                if(hours == 12 && minutes == 45 && secondes <= 10){
+                    SoupeTimeAble = true;
+
+                }
 
             }, 1000);
         }
 
-        SoupeTimeAble = true
+        if(SoupeTimeAble == true){
+            channelEpc.send("IT'S SOUPE TIME");
+            SoupeTimeAble = false;
+        }
     }
-    
-    
-    if(SoupeTimeAble == true){
-        channelEpc.send("IT'S SOUPE TIME");
-        SoupeTimeAble = false
-        checkTime();
-    }
+
 
 
 
@@ -296,8 +295,9 @@ client.on('message', async (message) => {
         }
     }
 
-    if (separatedText[0] === prefix + 'time'){
-        message.channel.send("Il est très pécisément: " + hours2 + minutes2 + secondes)
+    if (separatedText[0] === prefix + 'enableSoupeTime'){
+        checkTime();
+        message.channel.send("Soupe time enabled")
     }
 
 });
