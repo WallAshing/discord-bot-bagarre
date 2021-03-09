@@ -50,7 +50,7 @@ client.on('message', async (message) => {
     let adminID = "175577596891889664"
     let thisUserAvatarID = message.author.avatar;
 
-    let SoupeTimeAble = false
+    let SoupeTimeAble = true
 
     const channelEpc = client.channels.cache.get("551093070960263178");
 
@@ -64,7 +64,7 @@ client.on('message', async (message) => {
 
 
     function checkTime(){
-        while(hours != 12 && minutes != 45 && secondes > 10){
+        while(hours != 12 && minutes != 45){
             setTimeout(() => {
                 let start = Date.now()
             
@@ -87,6 +87,11 @@ client.on('message', async (message) => {
                 console.log("Il est très pécisément: " + hours2 + minutes2 + secondes);
 
                 SoupeTimeAble = false
+
+                // if(hours == 12 && minutes == 45 && secondes <= 10){
+                //     SoupeTimeAble = true
+
+                // }
 
             }, 1000);
         }
