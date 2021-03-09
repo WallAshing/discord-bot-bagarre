@@ -64,8 +64,8 @@ client.on('message', async (message) => {
 
 
     function checkTime(){
-        while(hours != 12 && minutes != 45 && secondes > 10 && SoupeTimeAble){
-            setTimeout( function time() {
+        while(hours != 12 && minutes != 45 && secondes > 10){
+            setTimeout(() => {
                 let start = Date.now()
             
                 let time = start % 86400000;
@@ -84,13 +84,17 @@ client.on('message', async (message) => {
             
                 secondes = Math.floor((time % 3600000) % 60000 / 1000)
                 
+                console.log("Il est très pécisément: " + hours2 + minutes2 + secondes);
+
             }, 1000);
         }
         if (hours == 12 && minutes > 50){
             SoupeTimeAble = true
         }
-        channelEpc.send("IT'S SOUPE TIME");
-        SoupeTimeAble = false
+        if(SoupeTimeAble){
+            channelEpc.send("IT'S SOUPE TIME");
+            SoupeTimeAble = false
+        }
         
     }
 
