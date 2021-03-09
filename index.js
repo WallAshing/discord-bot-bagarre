@@ -50,8 +50,6 @@ client.on('message', async (message) => {
     let adminID = "175577596891889664"
     let thisUserAvatarID = message.author.avatar;
 
-    let SoupeTimeAble = true
-
     const channelEpc = client.channels.cache.get("551093070960263178");
 
 
@@ -64,6 +62,7 @@ client.on('message', async (message) => {
 
 
     function checkTime(){
+        let SoupeTimeAble = false
         while(!SoupeTimeAble){
             setTimeout(() => {
                 let start = Date.now()
@@ -100,7 +99,7 @@ client.on('message', async (message) => {
 
         if(SoupeTimeAble == true){
             channelEpc.send("IT'S SOUPE TIME");
-            SoupeTimeAble = false;
+            return
         }
     }
 
