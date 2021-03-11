@@ -3,9 +3,6 @@ const fetch = require('node-fetch')
 const client = new Discord.Client();
 const { MessageEmbed } = require('discord.js');
 
-
-
-
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
 const lose = "https://cdn.discordapp.com/attachments/427551918009745433/787013550060601384/EjvEwh_WAAAzr9r.png";
 
@@ -231,25 +228,25 @@ client.on('message', async (message) => {
         }
     }
 
-    if(thisUserID == "355629885106028545"){
-        if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
-            let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
-            if(random == 0){
-                message.channel.send("https://cdn.discordapp.com/attachments/644478292145209357/805794675453329408/tg_dondon.png")
-                compteurPingu++
-            }
-        }
-    }
+    // if(thisUserID == "355629885106028545"){
+    //     if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
+    //         let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
+    //         if(random == 0){
+    //             message.channel.send("https://cdn.discordapp.com/attachments/644478292145209357/805794675453329408/tg_dondon.png")
+    //             compteurPingu++
+    //         }
+    //     }
+    // }
 
-    if (thisUserID == "305787132407054337"){
-        if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
-            let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
-            if(random == 13){
-                message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
-                compteurJij++
-            }
-        }
-    }
+    // if (thisUserID == "305787132407054337"){
+    //     if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
+    //         let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
+    //         if(random == 13){
+    //             message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
+    //             compteurJij++
+    //         }
+    //     }
+    // }
 
     if(command === prefix + 'channelid'){
         message.channel.send("Voici l'ID " + thisChannelID)
@@ -259,13 +256,13 @@ client.on('message', async (message) => {
         message.channel.send("Voici l'ID " + thisGuildID)
     }
 
-    if(command === prefix + 'pingustreak'){
-        message.channel.send(compteurPingu)
-    }
+    // if(command === prefix + 'pingustreak'){
+    //     message.channel.send(compteurPingu)
+    // }
 
-    if(command === prefix + 'jijstreak'){
-        message.channel.send(compteurJij)
-    }
+    // if(command === prefix + 'jijstreak'){
+    //     message.channel.send(compteurJij)
+    // }
 
     if (separatedText[0] === prefix + 'avatar'){
         if (!separatedText[1]){
