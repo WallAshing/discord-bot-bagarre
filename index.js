@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch')
 const client = new Discord.Client();
 const { MessageEmbed } = require('discord.js');
+require('dotenv').config();
 
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
 const lose = "https://cdn.discordapp.com/attachments/427551918009745433/787013550060601384/EjvEwh_WAAAzr9r.png";
@@ -46,10 +47,6 @@ client.on('message', async (message) => {
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminID = "175577596891889664"
     let thisUserAvatarID = message.author.avatar;
-
-    const channelEpc = client.channels.cache.get("551093070960263178");
-
-
 
     let hours = 0
     let minutes = 0
@@ -157,13 +154,13 @@ client.on('message', async (message) => {
                     let player = thisMention;
                     let opponent = separatedText[1];
                     let totuLeContenu = separatedText.slice(2)
-                    let title = ""
+                    let title = "";
 
                     for (let i = 0; i < totuLeContenu.length; i++) {
                         title += totuLeContenu[i] + " ";
                     }
 
-                    title = title.split("<@")
+                    title = title.split("<@");
                     
                     if (title.length == 1){
                         if (player != opponent){
@@ -188,7 +185,7 @@ client.on('message', async (message) => {
                                         { name: ':x: Loser :x:', value: player, inline: true }
                                     )
                                 message.channel.send(fightEmbed);
-                            };
+                            }
                         }
                         else{
                             message.channel.send("Désolé c'est pas maso friendly, réécris la commande bg");
@@ -202,7 +199,7 @@ client.on('message', async (message) => {
             }
             else{
                 message.channel.send("T'as mal écrit bg")
-            };
+            }
         }
         else{
             let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
