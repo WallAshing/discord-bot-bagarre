@@ -1,35 +1,19 @@
 const Discord = require('discord.js');
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 const client = new Discord.Client();
 const { MessageEmbed } = require('discord.js');
 require('dotenv').config();
 
 const win = "https://cdn.discordapp.com/attachments/427551918009745433/787013587385319485/ESysW-WUUAE4iEA.png";
 const lose = "https://cdn.discordapp.com/attachments/427551918009745433/787013550060601384/EjvEwh_WAAAzr9r.png";
-
 const winColor = "#5bf244";
 const loseColor = "#e01919";
 
-const prefix = "?"
+const avatarBaseLink = "https://cdn.discordapp.com/avatars/"
 
-let compteurPingu = 0
-let compteurJij = 0
+const prefix = "?";
 
-// let result = ""
-
-
-// function search(id){
-//     const url = 'https://discord.com/api/v8/users/'+ id;
-    
-//         fetch(url)
-//         .then((resp) => resp.json())
-//         .then(function(data){
-//                 result = data.avatar
-//         });
-
-//     return result;
-// }
-
+const axios = require('axios')
 
 client.once('ready', () => {
 	console.log('Leggo la baguarre');
@@ -39,68 +23,14 @@ client.once('ready', () => {
 client.on('message', async (message) => {
 
     let separatedText = message.content.split(" ");
-    let thisGuildID = message.guild.id // id du serveur
+    let thisGuildID = message.guild.id; // id du serveur
     let thisChannelID = message.channel.id; // id du channel
-    let thisUserUsername = message.author.username;
+    let thisUsername = message.author.username;
     let thisUserID = message.author.id; // id de la personne qui a écrite
     let thisMention = '<@!' + thisUserID + '>'; // mentionne la personne qui a écrit le message
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
-    let adminID = "175577596891889664"
+    let adminID = "175577596891889664";
     let thisUserAvatarID = message.author.avatar;
-
-    let hours = 0
-    let minutes = 0
-    let secondes = 0
-    let hours2 = 0
-    let minutes2 = 0
-
-
-    function checkTime(){
-        let SoupeTimeAble = false
-        while(!SoupeTimeAble){
-            setTimeout(() => {
-                let start = Date.now()
-            
-                let time = start % 86400000;
-            
-                hours = Math.floor(time / 3600000) + 1;
-            
-                hours2 = hours + ":";
-            
-                minutes = Math.floor((time % 3600000) / 60000);
-                
-                minutes2 = minutes + ":";
-            
-                if (minutes < 10){
-                    minutes2 = "0" + minutes2;
-                };
-            
-                secondes = Math.floor((time % 3600000) % 60000 / 1000);
-                
-                console.log("Il est très pécisément: " + hours2 + minutes2 + secondes);
-
-                SoupeTimeAble = false;
-
-                channelEpc.send("Il est : " + hours2 + ":" + minutes2 + ":" + secondes);
-
-                if(hours == 18 && minutes == 43 && secondes <= 10){
-                    SoupeTimeAble = true;
-
-                }
-
-            }, 1000);
-        }
-
-        if(SoupeTimeAble == true){
-            channelEpc.send("IT'S SOUPE TIME");
-            SoupeTimeAble == false
-            return
-        }
-    }
-
-
-
-
 
     if (message.author.bot) return;
 
@@ -150,7 +80,7 @@ client.on('message', async (message) => {
                     }
                 }
                 else{
-                    let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
+                    let random = Math.floor(Math.random() * 2);
                     let player = thisMention;
                     let opponent = separatedText[1];
                     let totuLeContenu = separatedText.slice(2)
@@ -203,8 +133,7 @@ client.on('message', async (message) => {
         }
         else{
             let random = Math.floor(Math.random() * 2); // 0 ou 1 aléatoire
-            // console.log(random);
-            if (random == 1){
+            if (random === 1){
                 const winEmbed = new MessageEmbed()
                     .setColor(winColor)
                     .setTitle('Tu a gagné ')
@@ -213,7 +142,7 @@ client.on('message', async (message) => {
                     .setImage(win)
                 message.channel.send(winEmbed); // embed message pour la win
             }
-            if (random == 0){
+            if (random === 0){
                 const loseEmbed = new MessageEmbed()
                     .setColor(loseColor)
                     .setTitle('Tu a perdu ')
@@ -221,29 +150,9 @@ client.on('message', async (message) => {
                     .addField(':x: Loser :x:', thisMention, true)
                     .setImage(lose);
                 message.channel.send(loseEmbed); // embed message pour la lose
-            };
+            }
         }
     }
-
-    // if(thisUserID == "355629885106028545"){
-    //     if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
-    //         let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
-    //         if(random == 0){
-    //             message.channel.send("https://cdn.discordapp.com/attachments/644478292145209357/805794675453329408/tg_dondon.png")
-    //             compteurPingu++
-    //         }
-    //     }
-    // }
-
-    // if (thisUserID == "305787132407054337"){
-    //     if(thisChannelID == "533329816447877130" || thisChannelID == "536522408685862922" || thisChannelID == "546430191845769227" || thisChannelID == "551070017676902423"){
-    //         let random = Math.floor(Math.random() * 15); // 0 à 15 aléatoire
-    //         if(random == 13){
-    //             message.channel.send("https://cdn.discordapp.com/attachments/533329816447877130/805797606122586142/tumblr_otf980gBeU1tzhveyo2_1280.png")
-    //             compteurJij++
-    //         }
-    //     }
-    // }
 
     if(command === prefix + 'channelid'){
         message.channel.send("Voici l'ID " + thisChannelID)
@@ -253,45 +162,43 @@ client.on('message', async (message) => {
         message.channel.send("Voici l'ID " + thisGuildID)
     }
 
-    // if(command === prefix + 'pingustreak'){
-    //     message.channel.send(compteurPingu)
-    // }
-
-    // if(command === prefix + 'jijstreak'){
-    //     message.channel.send(compteurJij)
-    // }
-
     if (separatedText[0] === prefix + 'avatar'){
         if (!separatedText[1]){
-            // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
-            let avatar = message.author.avatarURL({ dynamic:true, size:1024})
-            // message.channel.send(avatar)
-            return message.channel.send(avatar)
+            const response = await axios.get(
+                `https://discord.com/api/v10/users/${thisUserID}`,
+                {
+                    headers: {
+                        'Authorization': "Bot" + process.env.TOKEN
+                    }
+                })
+
+            return message.channel.send(`${avatarBaseLink}${response.avatar}.png?size=2048`)
         }
-        if(!message.mentions.users.first()){
-            let id = separatedText[1]
-
-            // maybe convertir en string / int ?
-
-            let getUser = async () => {
-                let result = await fetch('https://discord.com/api/v8/users/' + id)
-                let json = await result.json()
-                return json
-            }
-            let user = await getUser()
-        }
-        if(message.mentions.users.first()){
-            console.log(message.mentions.users)
-            console.log(message.mentions.users.first())
-
-            let user = message.mentions.users.first()
-            return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
-        }
-    }
-
-    if (separatedText[0] === prefix + 'enableSoupeTime'){
-        message.channel.send("Soupe time enabled")
-        checkTime();
+        // if (!separatedText[1]){
+        //     // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
+        //     let avatar = message.author.avatarURL({ dynamic:true, size:1024})
+        //     // message.channel.send(avatar)
+        //     return message.channel.send(avatar)
+        // }
+        // if(!message.mentions.users.first()){
+        //     let id = separatedText[1]
+        //
+        //     // maybe convertir en string / int ?
+        //
+        //     let getUser = async () => {
+        //         let result = await fetch('https://discord.com/api/v8/users/' + id)
+        //         let json = await result.json()
+        //         return json
+        //     }
+        //     let user = await getUser()
+        // }
+        // if(message.mentions.users.first()){
+        //     console.log(message.mentions.users)
+        //     console.log(message.mentions.users.first())
+        //
+        //     let user = message.mentions.users.first()
+        //     return message.channel.send(user.avatarURL({ dynamic:true, size:1024}))
+        // }
     }
 
 });
