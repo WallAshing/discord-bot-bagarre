@@ -173,6 +173,18 @@ client.on('message', async (message) => {
                 })
             return message.channel.send(`${avatarBaseLink}/${thisUserID}/${response.data.avatar}.png?size=2048`)
         }
+        if (message.mentions.users.first()) {
+            const id = separatedText[1]
+            const response = await axios.get(
+                `https://discord.com/api/v10/users/${id}`,
+                {
+                    headers: {
+                        'Authorization': "Bot " + process.env.TOKEN
+                    }
+                })
+            return message.channel.send(`${avatarBaseLink}/${id}/${response.data.avatar}.png?size=2048`)
+
+        }
         // if (!separatedText[1]){
         //     // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
         //     let avatar = message.author.avatarURL({ dynamic:true, size:1024})
