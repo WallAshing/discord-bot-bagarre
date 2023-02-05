@@ -15,6 +15,10 @@ const prefix = "?";
 
 const axios = require('axios')
 
+const getIdFromMention = (mention) => {
+    return mention.split('@')[1].split('>')[0];
+}
+
 client.once('ready', () => {
 	console.log('Leggo la baguarre');
     
@@ -35,7 +39,7 @@ client.on('message', async (message) => {
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
-        if (thisGuildID == "533329812719403028"){
+        if (thisGuildID === "533329812719403028"){
             message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre \n?channelId : donne l\'id du channel \n?serverId : donne l\'id du serveur \n?PinguStreak : donne le nombre de fois que Pingu s\'est fait bolosse \n?JijStreak : donne le nombre de fois que Jij s\'est fait bolosse`');
             // message.delete();
         }else{
@@ -174,7 +178,8 @@ client.on('message', async (message) => {
             return message.channel.send(`${avatarBaseLink}/${thisUserID}/${response.data.avatar}.png?size=2048`)
         }
         if (message.mentions.users.first()) {
-            const id = separatedText[1].split("@");
+            let id = getIdFromMention(separatedText[1])
+
             const response = await axios.get(
                 `https://discord.com/api/v10/users/${id}`,
                 {
@@ -182,6 +187,7 @@ client.on('message', async (message) => {
                         'Authorization': "Bot " + process.env.TOKEN
                     }
                 })
+
             return message.channel.send(`${avatarBaseLink}/${id}/${response.data.avatar}.png?size=2048`)
         }
         // if (!separatedText[1]){
