@@ -1,2 +1,2 @@
-installer: npm i
+installer: npm i -g
 worker: node index.js
