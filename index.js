@@ -171,8 +171,12 @@ client.on('message', async (message) => {
                         'Authorization': "Bot" + process.env.TOKEN
                     }
                 })
+            try {
+                return message.channel.send(`${avatarBaseLink}${response.avatar}.png?size=2048`)
+            } catch (e) {
+                return message.channel.send(`c'est ça l'erreur bébou : ${response}`)
+            }
 
-            return message.channel.send(`${avatarBaseLink}${response.avatar}.png?size=2048`)
         }
         // if (!separatedText[1]){
         //     // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
