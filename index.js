@@ -15,10 +15,6 @@ const prefix = "?";
 
 const axios = require('axios')
 
-const getIdFromMention = (mention) => {
-    return mention.split('@')[1].split('>')[0];
-}
-
 client.once('ready', () => {
 	console.log('Leggo la baguarre');
     
@@ -34,6 +30,10 @@ client.on('message', async (message) => {
     let command = message.content.toLowerCase(); // convertis les caractère en minuscule
     let adminID = "175577596891889664";
     let thisUserAvatarID = message.author.avatar;
+
+    const getIdFromMention = (mention) => {
+        return mention.split('@')[1].split('>')[0];
+    }
 
     if (message.author.bot) return;
 
