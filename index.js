@@ -9,7 +9,7 @@ const lose = "https://cdn.discordapp.com/attachments/427551918009745433/78701355
 const winColor = "#5bf244";
 const loseColor = "#e01919";
 
-const avatarBaseLink = "https://cdn.discordapp.com/avatars/"
+const avatarBaseLink = "https://cdn.discordapp.com/avatars"
 
 const prefix = "?";
 
@@ -171,8 +171,7 @@ client.on('message', async (message) => {
                         'Authorization': "Bot " + process.env.TOKEN
                     }
                 })
-            return message.channel.send(`${avatarBaseLink}${response.data.avatar}.png?size=2048`)
-
+            return message.channel.send(`${avatarBaseLink}/${thisUserID}/${response.data.avatar}.png?size=2048`)
         }
         // if (!separatedText[1]){
         //     // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
