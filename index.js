@@ -174,7 +174,7 @@ client.on('message', async (message) => {
             return message.channel.send(`${avatarBaseLink}/${thisUserID}/${response.data.avatar}.png?size=2048`)
         }
         if (message.mentions.users.first()) {
-            const id = separatedText[1]
+            const id = separatedText[1].split("@");
             const response = await axios.get(
                 `https://discord.com/api/v10/users/${id}`,
                 {
