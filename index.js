@@ -27,7 +27,6 @@ client.once('ready', () => {
 client.on('message', async (message) => {
 
     let separatedText = message.content.split(" ");
-    let thisGuildID = message.guild.id; // id du serveur
     let thisChannelID = message.channel.id; // id du channel
     let thisUsername = message.author.username;
     let thisUserID = message.author.id; // id de la personne qui a écrite
@@ -39,12 +38,7 @@ client.on('message', async (message) => {
     if (message.author.bot) return;
 
     if (command === prefix + 'help'){
-        if (thisGuildID === "533329812719403028"){
-            message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre \n?channelId : donne l\'id du channel \n?serverId : donne l\'id du serveur \n?PinguStreak : donne le nombre de fois que Pingu s\'est fait bolosse \n?JijStreak : donne le nombre de fois que Jij s\'est fait bolosse`');
-            // message.delete();
-        }else{
-            message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre \n?channelId : donne l\'id du channel \n?serverId : donne l\'id du serveur `');
-        }
+        message.channel.send('`Les commandes sont : \n?help : affiche cette réponse \n?bagarre : faire la bagarre contre le bot \n?bagarre @username : faire la bagarre contre la personne mentionnée \n?bagarre @username unTitre : expliquer pourquoi faire la bagarre \n?channelId : donne l\'id du channel \n?serverId : donne l\'id du serveur \n?PinguStreak : donne le nombre de fois que Pingu s\'est fait bolosse \n?JijStreak : donne le nombre de fois que Jij s\'est fait bolosse`');
     }
 
     if (separatedText[0] === prefix + 'bagarre'){
@@ -163,7 +157,7 @@ client.on('message', async (message) => {
     }
     
     if(command === prefix + 'serverid'){
-        message.channel.send("Voici l'ID " + thisGuildID)
+        message.channel.send("Voici l'ID " + message.guild.id)
     }
 
     if (separatedText[0] === prefix + 'avatar'){
