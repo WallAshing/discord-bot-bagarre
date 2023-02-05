@@ -183,7 +183,6 @@ client.on('message', async (message) => {
                     }
                 })
             return message.channel.send(`${avatarBaseLink}/${id}/${response.data.avatar}.png?size=2048`)
-
         }
         // if (!separatedText[1]){
         //     // let avatar = "https://cdn.discordapp.com/avatars/" + thisUserID + "/" + thisUserAvatarID + ".png?size=1024"
