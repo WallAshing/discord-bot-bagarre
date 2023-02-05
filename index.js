@@ -168,16 +168,10 @@ client.on('message', async (message) => {
                 `https://discord.com/api/v10/users/${thisUserID}`,
                 {
                     headers: {
-                        'Authorization': "Bot" + process.env.TOKEN
+                        'Authorization': "Bot " + process.env.TOKEN
                     }
                 })
-            return message.channel.send(`c'est ça l'erreur bébou : ${response}`)
-
-            // try {
-            //     return message.channel.send(`${avatarBaseLink}${response.avatar}.png?size=2048`)
-            // } catch (e) {
-            //
-            // }
+            return message.channel.send(`${avatarBaseLink}${response.data.avatar}.png?size=2048`)
 
         }
         // if (!separatedText[1]){
